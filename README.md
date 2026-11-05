@@ -21,9 +21,9 @@ Open `js/main.js` and add an object to the `projects` array:
 ```js
 {
   title: "My New App",
-  category: "web",            // web | design | software
+  category: "web",            // web | software | design
   description: "Short description.",
-  tags: ["Laravel", "React"],
+  result: "What it changed for the client, in one line.",
   image: "images/my-app.jpg", // or "" for no image
   link: "https://...",        // or "" to hide the link
 },
@@ -31,7 +31,8 @@ Open `js/main.js` and add an object to the `projects` array:
 
 ## Motion and interaction
 
-Every effect says something: the hero enters once, sections settle in as you reach them, the process
+Every effect says something: the hero demo builds a website through Idea, Design and Launch (click a step,
+or let it play; it pauses on hover and off screen), the services list shows what you get for each one, the hero enters once, sections settle in as you reach them, the process
 lines draw in order, one indicator marks the current section and the selected filter, cards and rows
 answer hover, the header steps aside while you read and returns when you scroll up, and the form shakes
 the fields that need fixing. All motion uses `transform`/`opacity` and switches off under

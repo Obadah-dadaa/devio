@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Devio · Web apps, custom software and UI/UX design</title>
-  <meta name="description" content="Devio is a small software studio. We design and build web apps, custom software and interfaces for startups and growing businesses." />
-  <meta property="og:title" content="Devio · Web apps, custom software and UI/UX design" />
-  <meta property="og:description" content="A small software studio that takes your product from first sketch to launch." />
+  <title>Devio · Websites, apps and software that grow your business</title>
+  <meta name="description" content="Devio designs, builds and launches websites, web apps and custom software for startups and growing businesses. Tell us your idea and we'll show you what's possible." />
+  <meta property="og:title" content="Devio · Websites, apps and software that grow your business" />
+  <meta property="og:description" content="We turn your idea into a product your customers love to use, from first sketch to launch." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/icons/icon-512.png" />
-  <meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0b0d17" media="(prefers-color-scheme: dark)" />
 
   <link rel="icon" href="assets/icons/favicon.ico" sizes="any" />
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
@@ -39,16 +39,16 @@
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="Devio, back to top">
-        <svg class="brand-mark" viewBox="0 0 512 512" aria-hidden="true"><rect width="512" height="512" rx="112" fill="currentColor"/><path fill="var(--accent)" fill-rule="evenodd" d="M150 128h102a128 128 0 0 1 0 256H150zm62 62v132h40a66 66 0 0 0 0-132z"/></svg>
+        <svg class="brand-mark" viewBox="0 0 512 512" aria-hidden="true"><rect width="512" height="512" rx="112" fill="var(--accent)"/><path fill="var(--on-accent)" fill-rule="evenodd" d="M150 128h102a128 128 0 0 1 0 256H150zm62 62v132h40a66 66 0 0 0 0-132z"/></svg>
         <span>Devio</span>
       </a>
 
       <nav class="site-nav" id="siteNav" aria-label="Main">
         <ul>
           <li><a href="#services">Services</a></li>
-          <li><a href="#process">Process</a></li>
+          <li><a href="#process">How it works</a></li>
           <li><a href="#work">Work</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="#why">Why Devio</a></li>
         </ul>
         <span class="nav-indicator" aria-hidden="true"></span>
         <a href="#contact" class="btn btn-primary btn-sm">Start a project</a>
@@ -71,24 +71,61 @@
     <section class="hero" id="top">
       <div class="container hero-inner">
         <div class="hero-copy">
-          <p class="kicker hero-in">Software studio for startups and growing businesses</p>
-          <h1 class="hero-in">Web apps and custom software, designed and built by one small team.</h1>
+          <p class="kicker hero-in">Websites, apps and software for growing businesses</p>
+          <h1 class="hero-in">Turn your idea into a product your customers <em>love</em> to use.</h1>
           <p class="lead hero-in">
-            Devio takes a product from first sketch to launch. You talk directly to
-            the people writing the code, and you see working software every week.
+            We design, build and launch it for you, from the first sketch to the
+            day it goes live, so you can keep running your business.
           </p>
           <div class="hero-actions hero-in">
             <a href="#contact" class="btn btn-primary">Start a project <svg class="btn-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-            <a href="#work" class="text-link">See recent work <span aria-hidden="true">→</span></a>
+            <a href="#work" class="text-link">See what we've built <span aria-hidden="true">→</span></a>
           </div>
+          <ul class="trust hero-in" aria-label="Devio in numbers">
+            <li><strong><span data-count="25">25</span>+</strong> products launched</li>
+            <li><strong><span data-count="15">15</span>+</strong> happy clients</li>
+            <li><strong>24h</strong> reply time</li>
+          </ul>
         </div>
 
-        <dl class="facts" aria-label="Devio at a glance">
-          <div class="hero-in"><dt>Delivered</dt><dd>25+ projects for 15+ clients</dd></div>
-          <div class="hero-in"><dt>Stack</dt><dd>Laravel, React, JavaScript, Figma</dd></div>
-          <div class="hero-in"><dt>Based</dt><dd>Remote, working worldwide</dd></div>
-          <div class="hero-in"><dt>Reply time</dt><dd>Within 24 hours</dd></div>
-        </dl>
+        <!-- Interactive demo: a site building itself in three steps -->
+        <figure class="demo hero-in" id="demo" data-stage="idea" aria-label="How your product comes together">
+          <div class="demo-window">
+            <div class="demo-bar" aria-hidden="true">
+              <span class="demo-url"><i class="live-dot"></i>yourbusiness.com</span>
+            </div>
+            <div class="demo-screen" aria-hidden="true">
+              <div class="d-nav"><i class="b b-accent d-logo"></i><i class="b d-link"></i><i class="b d-link"></i><i class="b d-link"></i><i class="b b-accent d-btn"></i></div>
+              <div class="d-hero">
+                <div class="d-copy">
+                  <i class="b d-h1"></i><i class="b d-h1 d-short"></i>
+                  <i class="b d-p"></i><i class="b d-p d-short"></i>
+                  <i class="b b-accent d-cta"></i>
+                </div>
+                <div class="b b-img d-pic"><i class="d-sun"></i><i class="d-hill"></i></div>
+              </div>
+              <div class="d-cards">
+                <div class="d-card"><i class="b b-img d-thumb"></i><i class="b d-line"></i><i class="b d-line d-short"></i></div>
+                <div class="d-card"><i class="b b-img d-thumb"></i><i class="b d-line"></i><i class="b d-line d-short"></i></div>
+                <div class="d-card"><i class="b b-img d-thumb"></i><i class="b d-line"></i><i class="b d-line d-short"></i></div>
+              </div>
+              <div class="d-chart">
+                <i style="--h:.35"></i><i style="--h:.5"></i><i style="--h:.42"></i><i style="--h:.62"></i><i style="--h:.58"></i><i style="--h:.78"></i><i style="--h:.92"></i>
+              </div>
+            </div>
+            <div class="d-toast" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+              <span><strong>New enquiry</strong> from your website</span>
+            </div>
+          </div>
+
+          <div class="demo-steps" role="tablist" aria-label="Project stage">
+            <button class="demo-step" type="button" role="tab" id="stage-idea" data-stage="idea" aria-selected="true">Idea</button>
+            <button class="demo-step" type="button" role="tab" id="stage-design" data-stage="design" aria-selected="false">Design</button>
+            <button class="demo-step" type="button" role="tab" id="stage-launch" data-stage="launch" aria-selected="false">Launch</button>
+          </div>
+          <figcaption class="demo-caption" id="demoCaption" aria-live="polite">We sketch every screen around what your customers need.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -96,54 +133,90 @@
     <section class="section" id="services" aria-labelledby="services-title">
       <div class="container">
         <header class="section-head reveal">
-          <h2 id="services-title">What we do</h2>
-          <p>Design and engineering under one roof, so nothing gets lost between the mockup and the code.</p>
+          <h2 id="services-title">What we can build for you</h2>
+          <p>Pick what you need. Every project comes designed, built, tested and launched by the same team.</p>
         </header>
 
-        <ul class="services">
-          <li class="service reveal">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 13h5M7 16h8"/></svg>
-            <div>
-              <h3>Web applications</h3>
-              <p>Dashboards, portals and internal tools built on Laravel and React, with an admin panel your team can actually use.</p>
-            </div>
-          </li>
-          <li class="service reveal">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 17 5-5-5-5M9 7l-5 5 5 5"/></svg>
-            <div>
-              <h3>Custom programming</h3>
-              <p>APIs, integrations and automations shaped around how your business already works, not the other way round.</p>
-            </div>
-          </li>
-          <li class="service reveal">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/></svg>
-            <div>
-              <h3>UI design</h3>
-              <p>Interfaces and small design systems that keep every screen consistent as the product grows.</p>
-            </div>
-          </li>
-          <li class="service reveal">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h10M4 12h7M4 18h10"/><circle cx="17.5" cy="12" r="3"/><path d="m19.7 14.2 2.3 2.3"/></svg>
-            <div>
-              <h3>UX research</h3>
-              <p>User flows, wireframes and clickable prototypes, tested with real users before a line of code is written.</p>
-            </div>
-          </li>
-          <li class="service reveal">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="14" height="11" rx="1.5"/><rect x="17" y="8" width="5" height="11" rx="1.2"/><path d="M6 20h6"/></svg>
-            <div>
-              <h3>Responsive and mobile</h3>
-              <p>Every screen is checked on phones, tablets and desktops before it ships.</p>
-            </div>
-          </li>
-          <li class="service reveal">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>
-            <div>
-              <h3>Branding and launch</h3>
-              <p>Logo, landing page and launch support to put your product in front of its first customers.</p>
-            </div>
-          </li>
-        </ul>
+        <div class="svc reveal">
+          <div class="svc-tabs" role="tablist" aria-label="Services" aria-orientation="vertical">
+            <span class="svc-marker" aria-hidden="true"></span>
+            <button class="svc-tab" type="button" role="tab" id="tab-site" aria-controls="panel-site" aria-selected="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 13h6"/></svg>Websites that bring in customers
+            </button>
+            <button class="svc-tab" type="button" role="tab" id="tab-app" aria-controls="panel-app" aria-selected="false" tabindex="-1">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12"/></svg>Online ordering, booking and portals
+            </button>
+            <button class="svc-tab" type="button" role="tab" id="tab-software" aria-controls="panel-software" aria-selected="false" tabindex="-1">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Software to run your business
+            </button>
+            <button class="svc-tab" type="button" role="tab" id="tab-design" aria-controls="panel-design" aria-selected="false" tabindex="-1">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/></svg>Design that looks professional
+            </button>
+            <button class="svc-tab" type="button" role="tab" id="tab-mobile" aria-controls="panel-mobile" aria-selected="false" tabindex="-1">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="14" height="11" rx="1.5"/><rect x="17" y="8" width="5" height="11" rx="1.2"/><path d="M6 20h6"/></svg>Works on every screen
+            </button>
+            <button class="svc-tab" type="button" role="tab" id="tab-brand" aria-controls="panel-brand" aria-selected="false" tabindex="-1">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>Branding and launch
+            </button>
+          </div>
+
+          <div class="svc-panels">
+            <article class="svc-panel" role="tabpanel" id="panel-site" aria-labelledby="tab-site">
+              <h3>A website that turns visitors into enquiries.</h3>
+              <p>Clear, fast and easy to trust. People understand what you offer in seconds and know exactly how to contact you.</p>
+              <ul class="gets" aria-label="What you get">
+                <li>Pages you can update yourself, no developer needed</li>
+                <li>Contact and booking forms that land straight in your inbox</li>
+                <li>Set up for Google search from day one</li>
+              </ul>
+            </article>
+            <article class="svc-panel" role="tabpanel" id="panel-app" aria-labelledby="tab-app" hidden>
+              <h3>Let customers order, book and pay without calling you.</h3>
+              <p>Your business stays open after hours. Customers help themselves, and you see every order in one place.</p>
+              <ul class="gets" aria-label="What you get">
+                <li>Online ordering, booking and payments</li>
+                <li>Customer accounts with their history and status</li>
+                <li>A simple admin panel for your team</li>
+              </ul>
+            </article>
+            <article class="svc-panel" role="tabpanel" id="panel-software" aria-labelledby="tab-software" hidden>
+              <h3>Swap spreadsheets and paperwork for one simple system.</h3>
+              <p>Software shaped around how your business already works: stock, invoices, payments and reports, all together.</p>
+              <ul class="gets" aria-label="What you get">
+                <li>Less copying between files, fewer mistakes</li>
+                <li>Reports ready when you need them</li>
+                <li>Access for your whole team, with the right permissions</li>
+              </ul>
+            </article>
+            <article class="svc-panel" role="tabpanel" id="panel-design" aria-labelledby="tab-design" hidden>
+              <h3>A product that looks premium and feels easy.</h3>
+              <p>We design every screen first, then test it with real people, so your customers get it without a manual.</p>
+              <ul class="gets" aria-label="What you get">
+                <li>A clickable design to try before anything is built</li>
+                <li>Feedback from real users, not guesses</li>
+                <li>One consistent look across every page</li>
+              </ul>
+            </article>
+            <article class="svc-panel" role="tabpanel" id="panel-mobile" aria-labelledby="tab-mobile" hidden>
+              <h3>Looks right on phones, tablets and laptops.</h3>
+              <p>Most of your customers will find you on a phone. Every screen we make is checked on all sizes before it ships.</p>
+              <ul class="gets" aria-label="What you get">
+                <li>Easy to tap, read and buy on a small screen</li>
+                <li>Fast to load, even on mobile data</li>
+                <li>No separate "mobile version" to maintain</li>
+              </ul>
+            </article>
+            <article class="svc-panel" role="tabpanel" id="panel-brand" aria-labelledby="tab-brand" hidden>
+              <h3>Everything you need to open the doors.</h3>
+              <p>From a logo to the launch-day landing page, we help you get in front of your first customers.</p>
+              <ul class="gets" aria-label="What you get">
+                <li>A logo and colours that fit your business</li>
+                <li>A launch page that collects sign-ups</li>
+                <li>Support on launch day and after</li>
+              </ul>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -151,30 +224,34 @@
     <section class="section section-tint" id="process" aria-labelledby="process-title">
       <div class="container">
         <header class="section-head reveal">
-          <h2 id="process-title">From idea to launch</h2>
-          <p>Four steps, and you can see where we are at every point.</p>
+          <h2 id="process-title">How it works</h2>
+          <p>Four clear steps. You always know where your project is and what comes next.</p>
         </header>
 
         <ol class="steps">
           <li class="step reveal">
             <span class="step-num">01</span>
-            <h3>Discover</h3>
-            <p>We learn your goals, your users and your market, and agree on what the first version must do.</p>
+            <h3>Tell us your idea</h3>
+            <p>A short call about your goals and your customers. No technical knowledge needed.</p>
+            <p class="step-get">You get a clear plan for version one</p>
           </li>
           <li class="step reveal">
             <span class="step-num">02</span>
-            <h3>Design</h3>
-            <p>Wireframes, then a clickable design you can try before anything is built.</p>
+            <h3>See it designed</h3>
+            <p>We turn the plan into real screens you can click through and change.</p>
+            <p class="step-get">You get a design to try before we build</p>
           </li>
           <li class="step reveal">
             <span class="step-num">03</span>
-            <h3>Build</h3>
-            <p>Clean, tested code with a demo every week, so there are no surprises at the end.</p>
+            <h3>Watch it built</h3>
+            <p>A short demo every week, so you can steer early and there are no surprises.</p>
+            <p class="step-get">You get working progress every week</p>
           </li>
           <li class="step reveal">
             <span class="step-num">04</span>
-            <h3>Launch</h3>
-            <p>We deploy, watch how it is used and keep improving it with you.</p>
+            <h3>Launch and grow</h3>
+            <p>We put it live, watch how people use it and keep improving it with you.</p>
+            <p class="step-get">You get a live product and ongoing support</p>
           </li>
         </ol>
       </div>
@@ -184,16 +261,16 @@
     <section class="section" id="work" aria-labelledby="work-title">
       <div class="container">
         <header class="section-head reveal">
-          <h2 id="work-title">Recent work</h2>
-          <p>A few of the products we have designed and built.</p>
+          <h2 id="work-title">Products we've launched</h2>
+          <p>Real businesses, real problems solved. Here are a few of them.</p>
         </header>
 
         <div class="filters reveal" id="filters" role="group" aria-label="Filter projects">
           <span class="filter-indicator" aria-hidden="true"></span>
           <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
-          <button class="filter" type="button" data-filter="web" aria-pressed="false">Web apps</button>
-          <button class="filter" type="button" data-filter="design" aria-pressed="false">UI / UX</button>
-          <button class="filter" type="button" data-filter="software" aria-pressed="false">Software</button>
+          <button class="filter" type="button" data-filter="web" aria-pressed="false">Websites and apps</button>
+          <button class="filter" type="button" data-filter="software" aria-pressed="false">Business software</button>
+          <button class="filter" type="button" data-filter="design" aria-pressed="false">Design</button>
         </div>
 
         <!-- Projects are rendered from the list in js/main.js -->
@@ -201,28 +278,49 @@
       </div>
     </section>
 
-    <!-- About -->
-    <section class="section section-tint" id="about" aria-labelledby="about-title">
-      <div class="container about-inner">
-        <div class="about-copy reveal">
-          <h2 id="about-title">A small team that cares about the details</h2>
-          <p>
-            We are developers and designers who work with startups and growing
-            businesses. We keep teams small on purpose: the person you brief is the
-            person who builds it.
-          </p>
-          <ul class="checks">
-            <li>Direct contact with the people building your product</li>
-            <li>Modern, well-supported tools: Laravel, React, JavaScript</li>
-            <li>Design first, so the product is easy to use from day one</li>
-          </ul>
+    <!-- Why Devio -->
+    <section class="section section-tint" id="why" aria-labelledby="why-title">
+      <div class="container why-inner">
+        <div class="why-copy reveal">
+          <h2 id="why-title">Why businesses choose Devio</h2>
+          <p>We're a small team on purpose. The people you meet are the people who design and build your product.</p>
+          <dl class="stats">
+            <div><dt>Products launched</dt><dd><span data-count="25">25</span>+</dd></div>
+            <div><dt>Happy clients</dt><dd><span data-count="15">15</span>+</dd></div>
+            <div><dt>Years doing this</dt><dd><span data-count="5">5</span>+</dd></div>
+          </dl>
         </div>
 
-        <dl class="stats reveal">
-          <div><dt>Projects delivered</dt><dd><span data-count="25">25</span>+</dd></div>
-          <div><dt>Clients</dt><dd><span data-count="15">15</span>+</dd></div>
-          <div><dt>Years of experience</dt><dd><span data-count="5">5</span>+</dd></div>
-        </dl>
+        <ul class="reasons">
+          <li class="reason reveal">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+            <div>
+              <h3>You talk to the people building it</h3>
+              <p>No middlemen. Your message reaches the designer or developer directly, and you get a straight answer.</p>
+            </div>
+          </li>
+          <li class="reason reveal">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4M8 14l2.5 2.5L16 12"/></svg>
+            <div>
+              <h3>You see progress every week</h3>
+              <p>A short demo every week means you can change direction early, not after the money is spent.</p>
+            </div>
+          </li>
+          <li class="reason reveal">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+            <div>
+              <h3>Your customers find it easy</h3>
+              <p>We design first and test with real people, so your customers understand it without help.</p>
+            </div>
+          </li>
+          <li class="reason reveal">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="4"/></svg>
+            <div>
+              <h3>We stay after launch</h3>
+              <p>We watch how your product is used and keep improving it with you as your business grows.</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -230,8 +328,8 @@
     <section class="section" id="contact" aria-labelledby="contact-title">
       <div class="container contact-inner">
         <div class="contact-copy reveal">
-          <h2 id="contact-title">Have an idea? Let's talk it through.</h2>
-          <p>Tell us what you want to build. We reply within 24 hours, usually with a few questions and a rough plan.</p>
+          <h2 id="contact-title">Tell us your idea. We'll show you what's possible.</h2>
+          <p>Send a few lines about what you want to build. We reply within 24 hours with questions and a rough plan, free of charge.</p>
           <ul class="contact-lines">
             <li>
               <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
@@ -239,7 +337,7 @@
             </li>
             <li>
               <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
-              <span>Remote, working worldwide</span>
+              <span>Working with clients worldwide</span>
             </li>
           </ul>
         </div>
@@ -257,28 +355,26 @@
               <p class="field-error" id="email-error"></p>
             </div>
           </div>
-          <div class="field">
-            <label for="service">What do you need?</label>
-            <div class="select-wrap">
-              <select id="service" name="service" required aria-describedby="service-error">
-                <option value="" selected disabled>Choose a service</option>
-                <option>Web application</option>
-                <option>Custom programming</option>
-                <option>UI / UX design</option>
-                <option>Something else</option>
-              </select>
+          <fieldset class="field">
+            <legend>What do you need?</legend>
+            <div class="choices" id="service">
+              <label class="choice"><input type="radio" name="service" value="Website" required /><span>Website</span></label>
+              <label class="choice"><input type="radio" name="service" value="Online ordering or booking" /><span>Ordering or booking</span></label>
+              <label class="choice"><input type="radio" name="service" value="Business software" /><span>Business software</span></label>
+              <label class="choice"><input type="radio" name="service" value="Design" /><span>Design</span></label>
+              <label class="choice"><input type="radio" name="service" value="Not sure yet" /><span>Not sure yet</span></label>
             </div>
             <p class="field-error" id="service-error"></p>
-          </div>
+          </fieldset>
           <div class="field">
-            <label for="message">About your project</label>
-            <textarea id="message" name="message" rows="5" required aria-describedby="message-error message-hint"></textarea>
-            <p class="field-hint" id="message-hint">What it should do, who will use it, and any deadline.</p>
+            <label for="message">About your idea</label>
+            <textarea id="message" name="message" rows="5" required aria-describedby="message-hint message-error"></textarea>
+            <p class="field-hint" id="message-hint">What should it do, who is it for, and is there a date you're aiming for?</p>
             <p class="field-error" id="message-error"></p>
           </div>
           <div class="form-foot">
             <button type="submit" class="btn btn-primary" id="submitBtn">
-              <span class="btn-label">Send message</span>
+              <span class="btn-label">Send my idea</span>
             </button>
             <p class="form-note" id="formNote" role="status"></p>
           </div>
@@ -289,7 +385,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year">2026</span> Devio. Web apps, custom software and UI/UX design.</p>
+      <p>© <span id="year">2026</span> Devio. Websites, apps and software for growing businesses.</p>
       <a href="#top" class="text-link">Back to top <span aria-hidden="true">↑</span></a>
     </div>
   </footer>

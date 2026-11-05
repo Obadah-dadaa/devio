@@ -4,62 +4,63 @@
 
 /* ---------------------------------------------------------
    1. YOUR PROJECTS — edit this list to add or change projects.
-   category: "web" | "design" | "software"
+   category: "web" | "software" | "design"
+   result:   one line about what it changed for the client
    image:    optional screenshot, e.g. "images/seva.jpg" ("" shows no image)
-   link:     live URL or repository ("" hides the link)
+   link:     live URL ("" hides the link)
    --------------------------------------------------------- */
 const projects = [
   {
     title: "Seva Store",
     category: "web",
-    description: "Online store with colour and size variants, stock tracking, an admin panel and push notifications.",
-    tags: ["Laravel", "MySQL", "JavaScript"],
+    description: "An online shop where customers pick colour and size, pay, and get updates on their order.",
+    result: "Stock updates itself with every sale",
     image: "",
     link: "",
   },
   {
     title: "Nova Clinic",
     category: "web",
-    description: "Clinic management for appointments, patient records and doctors' schedules.",
-    tags: ["Laravel", "Bootstrap"],
+    description: "Appointment booking for a clinic, with patient records and each doctor's schedule in one place.",
+    result: "Patients book online instead of calling",
     image: "",
     link: "",
   },
   {
     title: "Al-Qalam ERP",
     category: "software",
-    description: "ERP prototype covering inventory, invoicing and reporting for a growing business.",
-    tags: ["PHP", "ERP", "Dashboards"],
+    description: "One system for stock, invoices and reports, built for a business that had outgrown spreadsheets.",
+    result: "Monthly reports in minutes, not days",
     image: "",
     link: "",
   },
   {
     title: "Tahselly",
     category: "software",
-    description: "Payments and collections platform that tracks what is owed and what has been paid.",
-    tags: ["Laravel", "API"],
+    description: "A payments and collections tool that shows what each customer owes and what has been paid.",
+    result: "Every payment tracked in one place",
     image: "",
     link: "",
   },
   {
     title: "Devio Design System",
     category: "design",
-    description: "Reusable UI kit with components, colours and type rules for fast, consistent products.",
-    tags: ["Figma", "UI kit"],
+    description: "A shared set of buttons, colours and layouts that keeps every screen consistent.",
+    result: "New screens designed in hours",
     image: "",
     link: "",
   },
   {
-    title: "Mobile banking UX",
+    title: "Mobile banking app",
     category: "design",
-    description: "UX research and a high-fidelity prototype for a simple, friendly banking app.",
-    tags: ["UX research", "Prototype"],
+    description: "Research with real users and a clickable design for a simple, friendly banking app.",
+    result: "Tested with real customers before building",
     image: "",
     link: "",
   },
 ];
 
-const categoryNames = { web: "Web app", design: "UI / UX", software: "Software" };
+const categoryNames = { web: "Website and app", software: "Business software", design: "Design" };
 const contactEmail = "hello@devio.com";
 
 const escapeHtml = (value) =>
@@ -67,6 +68,24 @@ const escapeHtml = (value) =>
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const staggerStep = 70;
+
+/* ---------- Count-up for numbers (runs once per container) ---------- */
+function countUp(container) {
+  if (reduceMotion.matches || container.dataset.counted) return;
+  container.dataset.counted = "1";
+  container.querySelectorAll("[data-count]").forEach((el) => {
+    const target = Number(el.dataset.count);
+    const duration = 1100;
+    const start = performance.now();
+    const tick = (now) => {
+      const t = Math.min((now - start) / duration, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3)));
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    el.textContent = "0";
+    requestAnimationFrame(tick);
+  });
+}
 
 /* ---------- Reveal: content settles in once, siblings in a short stagger ---------- */
 const revealObserver =
@@ -81,7 +100,7 @@ const revealObserver =
             el.style.setProperty("--d", `${Math.min(index, 6) * staggerStep}ms`);
             el.classList.add("in");
             revealObserver.unobserve(el);
-            if (el.matches(".stats")) countUp(el);
+            if (el.querySelector("[data-count]")) countUp(el);
           });
         },
         { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
@@ -101,24 +120,118 @@ function playHero() {
     el.style.setProperty("--d", `${i * 90}ms`);
     requestAnimationFrame(() => el.classList.add("in"));
   });
+  const trust = document.querySelector(".trust");
+  if (trust) setTimeout(() => countUp(trust), 500);
 }
 
-/* ---------- Stats: count up once, when they come into view ---------- */
-function countUp(container) {
-  if (reduceMotion.matches) return;
-  container.querySelectorAll("[data-count]").forEach((el) => {
-    const target = Number(el.dataset.count);
-    const duration = 1100;
-    const start = performance.now();
-    const tick = (now) => {
-      const t = Math.min((now - start) / duration, 1);
-      el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3)));
-      if (t < 1) requestAnimationFrame(tick);
-    };
-    el.textContent = "0";
-    requestAnimationFrame(tick);
+/* ---------- Hero demo: Idea → Design → Launch, plays on its own ---------- */
+const demo = document.getElementById("demo");
+const demoSteps = [...demo.querySelectorAll(".demo-step")];
+const demoCaption = document.getElementById("demoCaption");
+const stageOrder = ["idea", "design", "launch"];
+const stageInfo = {
+  idea: { time: "3s", caption: "We sketch every screen around what your customers need." },
+  design: { time: "3.4s", caption: "You click through the real design before anything is built." },
+  launch: { time: "4.6s", caption: "It goes live, and the enquiries start coming in." },
+};
+
+function setStage(stage) {
+  demo.dataset.stage = stage;
+  demo.style.setProperty("--stage-time", stageInfo[stage].time);
+  demoSteps.forEach((s) => {
+    const on = s.dataset.stage === stage;
+    s.setAttribute("aria-selected", String(on));
+    s.tabIndex = on ? 0 : -1;
   });
+  demoCaption.textContent = stageInfo[stage].caption;
+  demoCaption.classList.remove("swap");
+  void demoCaption.offsetWidth; // restart the caption fade
+  demoCaption.classList.add("swap");
 }
+
+if (reduceMotion.matches) demo.classList.add("is-manual");
+reduceMotion.addEventListener("change", (e) => demo.classList.toggle("is-manual", e.matches));
+
+// the progress line under the current step is a CSS animation; when it finishes, move on
+demo.addEventListener("animationend", (e) => {
+  if (e.animationName !== "fill" || demo.classList.contains("is-manual")) return;
+  const next = stageOrder[(stageOrder.indexOf(demo.dataset.stage) + 1) % stageOrder.length];
+  setStage(next);
+});
+demo.querySelector(".demo-steps").addEventListener("click", (e) => {
+  const step = e.target.closest(".demo-step");
+  if (step) setStage(step.dataset.stage);
+});
+demo.querySelector(".demo-steps").addEventListener("keydown", (e) => {
+  const i = stageOrder.indexOf(demo.dataset.stage);
+  let next = null;
+  if (e.key === "ArrowRight") next = stageOrder[(i + 1) % 3];
+  if (e.key === "ArrowLeft") next = stageOrder[(i + 2) % 3];
+  if (next) {
+    e.preventDefault();
+    setStage(next);
+    demoSteps[stageOrder.indexOf(next)].focus();
+  }
+});
+// pause while someone is looking closely or using the keyboard inside it
+const pauseDemo = (on) => demo.classList.toggle("is-paused", on);
+demo.addEventListener("pointerenter", () => pauseDemo(true));
+demo.addEventListener("pointerleave", () => pauseDemo(demo.contains(document.activeElement)));
+demo.addEventListener("focusin", () => pauseDemo(true));
+demo.addEventListener("focusout", (e) => { if (!demo.contains(e.relatedTarget)) pauseDemo(false); });
+// and while it is scrolled out of view
+if ("IntersectionObserver" in window) {
+  new IntersectionObserver(([entry]) => demo.classList.toggle("is-offscreen", !entry.isIntersecting)).observe(demo);
+}
+setStage("idea");
+
+/* ---------- Services: pick one, see what you get ---------- */
+const svcTabs = [...document.querySelectorAll(".svc-tab")];
+const svcMarker = document.querySelector(".svc-marker");
+
+function placeSvcMarker() {
+  const tab = svcTabs.find((t) => t.getAttribute("aria-selected") === "true");
+  if (!tab || !svcMarker) return;
+  svcMarker.style.setProperty("--y", `${tab.offsetTop}px`);
+  svcMarker.style.setProperty("--h", tab.offsetHeight / 100);
+}
+
+function selectSvc(tab, { focus = false } = {}) {
+  svcTabs.forEach((t) => {
+    const on = t === tab;
+    t.setAttribute("aria-selected", String(on));
+    t.tabIndex = on ? 0 : -1;
+    const panel = document.getElementById(t.getAttribute("aria-controls"));
+    panel.hidden = !on;
+    if (on) {
+      panel.classList.remove("swap");
+      void panel.offsetWidth;
+      panel.classList.add("swap");
+    }
+  });
+  placeSvcMarker();
+  if (focus) tab.focus();
+  // in the chip layout, bring the chosen chip fully into view without moving the page
+  const row = tab.parentElement;
+  if (row.scrollWidth > row.clientWidth) {
+    row.scrollTo({ left: tab.offsetLeft - 16, behavior: reduceMotion.matches ? "auto" : "smooth" });
+  }
+}
+
+svcTabs.forEach((tab, i) => {
+  tab.addEventListener("click", () => selectSvc(tab));
+  tab.addEventListener("keydown", (e) => {
+    const keys = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
+    let target = null;
+    if (e.key in keys) target = svcTabs[(i + keys[e.key] + svcTabs.length) % svcTabs.length];
+    if (e.key === "Home") target = svcTabs[0];
+    if (e.key === "End") target = svcTabs[svcTabs.length - 1];
+    if (target) {
+      e.preventDefault();
+      selectSvc(target, { focus: true });
+    }
+  });
+});
 
 /* ---------- Projects: render, filter, empty state ---------- */
 const grid = document.getElementById("projectsGrid");
@@ -131,18 +244,19 @@ function projectCard(p, i, entering) {
   const thumb = p.image
     ? `<div class="project-thumb"><img src="${escapeHtml(p.image)}" alt="Screenshot of ${escapeHtml(p.title)}" loading="lazy" /></div>`
     : "";
+  const result = p.result ? `<div class="project-result"><p>${escapeHtml(p.result)}</p></div>` : "";
   const link = p.link
-    ? `<a class="text-link project-link" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">View project <span aria-hidden="true">↗</span></a>`
+    ? `<a class="text-link project-link" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">See it live <span aria-hidden="true">↗</span></a>`
     : "";
   const cls = entering ? "project is-entering" : "project reveal";
   return `
     <article class="${cls}" style="--d:${Math.min(i, 6) * 60}ms">
       ${thumb}
       <div class="project-body">
-        <div class="project-meta"><span class="cat">${escapeHtml(categoryNames[p.category] || p.category)}</span></div>
+        <span class="project-cat">${escapeHtml(categoryNames[p.category] || p.category)}</span>
         <h3>${escapeHtml(p.title)}</h3>
         <p>${escapeHtml(p.description)}</p>
-        <ul class="project-tags" aria-label="Built with">${p.tags.map((t) => `<li>${escapeHtml(t)}</li>`).join("")}</ul>
+        ${result}
         ${link}
       </div>
     </article>`;
@@ -153,7 +267,7 @@ function emptyState() {
   return `
     <div class="empty is-entering">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>
-      <p>${filtered ? "No projects in this category yet." : "Projects will appear here once they are added to js/main.js."}</p>
+      <p>${filtered ? "Nothing in this category yet." : "Projects will appear here once they are added to js/main.js."}</p>
       ${filtered ? '<button type="button" class="text-link" data-reset-filter>Show all projects</button>' : ""}
     </div>`;
 }
@@ -218,7 +332,6 @@ function onScroll() {
 }
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
-// keyboard users tabbing into the header always get it back
 header.addEventListener("focusin", () => header.classList.remove("is-hidden"));
 
 function placeNavIndicator() {
@@ -286,7 +399,7 @@ function syncThemeLabel() {
   const next = currentTheme() === "dark" ? "light" : "dark";
   themeToggle.setAttribute("aria-label", `Switch to ${next} theme`);
   document.querySelectorAll('meta[name="theme-color"]').forEach((m) =>
-    m.setAttribute("content", currentTheme() === "dark" ? "#141311" : "#f7f6f3")
+    m.setAttribute("content", currentTheme() === "dark" ? "#0b0d17" : "#f6f7fb")
   );
 }
 let themeTimer;
@@ -308,29 +421,37 @@ syncThemeLabel();
 const form = document.getElementById("contactForm");
 const note = document.getElementById("formNote");
 const submitBtn = document.getElementById("submitBtn");
+const serviceField = form.querySelector("fieldset.field");
+serviceField.setAttribute("aria-describedby", "service-error");
 
 const rules = {
   name: (v) => (v ? "" : "Please tell us your name."),
   email: (v) =>
     !v ? "Please add your email so we can reply." : /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? "" : "That email address doesn't look complete.",
-  service: (v) => (v ? "" : "Please choose the closest option."),
-  message: (v) => (v.length >= 10 ? "" : "A sentence or two about the project helps us reply properly."),
+  service: (v) => (v ? "" : "Pick the closest option, or choose \"Not sure yet\"."),
+  message: (v) => (v.length >= 10 ? "" : "A sentence or two about your idea helps us reply properly."),
 };
 
-function validateField(input) {
-  const message = rules[input.name] ? rules[input.name](input.value.trim()) : "";
-  const field = input.closest(".field");
+const valueOf = (name) => {
+  if (name === "service") return (form.querySelector('input[name="service"]:checked') || {}).value || "";
+  return form.elements[name].value.trim();
+};
+
+function validate(name) {
+  const message = rules[name](valueOf(name));
+  const field = name === "service" ? serviceField : form.elements[name].closest(".field");
   field.classList.toggle("has-error", Boolean(message));
-  input.setAttribute("aria-invalid", String(Boolean(message)));
-  document.getElementById(`${input.id}-error`).textContent = message;
+  if (name !== "service") form.elements[name].setAttribute("aria-invalid", String(Boolean(message)));
+  document.getElementById(`${name}-error`).textContent = message;
   return !message;
 }
 
-form.querySelectorAll("input, select, textarea").forEach((input) => {
-  input.addEventListener("blur", () => { if (input.value.trim()) validateField(input); });
-  input.addEventListener("input", () => { if (input.closest(".field").classList.contains("has-error")) validateField(input); });
-  input.addEventListener("change", () => { if (input.tagName === "SELECT") validateField(input); });
+["name", "email", "message"].forEach((name) => {
+  const input = form.elements[name];
+  input.addEventListener("blur", () => { if (input.value.trim()) validate(name); });
+  input.addEventListener("input", () => { if (input.closest(".field").classList.contains("has-error")) validate(name); });
 });
+form.querySelectorAll('input[name="service"]').forEach((r) => r.addEventListener("change", () => validate("service")));
 
 function setBusy(busy) {
   form.setAttribute("aria-busy", String(busy));
@@ -338,8 +459,11 @@ function setBusy(busy) {
   submitBtn.setAttribute("aria-busy", String(busy));
   submitBtn.innerHTML = busy
     ? '<span class="spinner" aria-hidden="true"></span><span class="btn-label">Opening email…</span>'
-    : '<span class="btn-label">Send message</span>';
-  form.querySelectorAll("input, select, textarea").forEach((el) => { el.readOnly = busy; });
+    : '<span class="btn-label">Send my idea</span>';
+  form.querySelectorAll("input, textarea").forEach((el) => {
+    if (el.type === "radio") el.disabled = busy;
+    else el.readOnly = busy;
+  });
 }
 
 function shake(field) {
@@ -349,7 +473,7 @@ function shake(field) {
 }
 
 function sendMessage(data) {
-  const subject = `Project enquiry: ${data.service}`;
+  const subject = `New project idea: ${data.service}`;
   const body = `${data.message}\n\n${data.name}\n${data.email}`;
   window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
@@ -358,17 +482,21 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (submitBtn.disabled) return;
 
-  const inputs = [...form.querySelectorAll("[required]")];
-  const results = inputs.map(validateField);
+  const names = ["name", "email", "service", "message"];
+  const results = names.map(validate);
   if (results.includes(false)) {
-    inputs.forEach((input, i) => { if (!results[i]) shake(input.closest(".field")); });
+    names.forEach((name, i) => {
+      if (results[i]) return;
+      shake(name === "service" ? serviceField : form.elements[name].closest(".field"));
+    });
     note.textContent = "Please fix the highlighted fields.";
     note.className = "form-note is-error";
-    inputs[results.indexOf(false)].focus();
+    const first = names[results.indexOf(false)];
+    (first === "service" ? form.querySelector('input[name="service"]') : form.elements[first]).focus();
     return;
   }
 
-  const data = Object.fromEntries(new FormData(form));
+  const data = { name: valueOf("name"), email: valueOf("email"), service: valueOf("service"), message: valueOf("message") };
   note.textContent = "";
   note.className = "form-note";
   setBusy(true);
@@ -377,7 +505,7 @@ form.addEventListener("submit", (e) => {
   setTimeout(() => {
     setBusy(false);
     note.className = "form-note is-success";
-    note.innerHTML = `<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Your email app should now be open with the message ready. If nothing opened, write to ${contactEmail}.</span>`;
+    note.innerHTML = `<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Your email app should now be open with your idea ready to send. If nothing opened, write to ${contactEmail}.</span>`;
   }, 700);
 });
 
@@ -386,13 +514,11 @@ document.getElementById("year").textContent = new Date().getFullYear();
 observeReveal();
 playHero();
 placeFilterIndicator();
-window.addEventListener("resize", () => {
+placeSvcMarker();
+const relayout = () => {
   placeFilterIndicator();
   placeNavIndicator();
-});
-if (document.fonts && document.fonts.ready) {
-  document.fonts.ready.then(() => {
-    placeFilterIndicator();
-    placeNavIndicator();
-  });
-}
+  placeSvcMarker();
+};
+window.addEventListener("resize", relayout);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);

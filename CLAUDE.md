@@ -13,12 +13,16 @@ Static site: `index.html`, `css/style.css`, `js/main.js`. No build step. Open `i
 
 ## Design rules for this site
 
-- One accent colour (`--accent` in `css/style.css`). No gradients on text or buttons, no glows,
-  blurred blobs, emoji icons, floating chips or typing effects.
+- One accent colour: indigo blue (`--accent` in `css/style.css`, `#4f46e5` light / `#818cf8` dark) on
+  cool greys. No gradients on text or buttons, no glows, blurred blobs, emoji icons, floating chips or
+  typing effects.
+- Copy is for customers, not developers: talk about what they get (more enquiries, less paperwork),
+  never the tech stack.
 - Type: Geist for everything, Geist Mono for small meta labels. Sentence case headings. No ALL CAPS
   labels. Paragraphs stay under about 65 characters wide.
 - Numbers only for real sequences (the process steps).
-- Motion: `transform` and `opacity` only, never `transition: all`; pressed buttons scale to 0.97;
+- Motion must say something (the hero demo shows Idea → Design → Launch; indicators show where you
+  are). `transform` and `opacity` only, never `transition: all`; pressed buttons scale to 0.97;
   everything respects `prefers-reduced-motion`.
 - Every interactive element has hover, focus-visible and active states. Touch targets at least 44 px.
 - Responsive is part of done: check 375, 768, 1024, 1280, 1440 and 1920 px. No horizontal page scroll.
