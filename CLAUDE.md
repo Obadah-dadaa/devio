@@ -14,16 +14,19 @@ Static site: `index.html`, `css/style.css`, `js/main.js`. No build step. Open `i
 ## Design rules for this site
 
 - One accent colour: royal blue (`--accent` in `css/style.css`, `#2a5cd6`) on deep navy (`--bg`,
-  `#070b18`). The site is dark only, there is no light theme. Text on royal is white; royal as small
-  text on navy uses `--accent-ink` (`#7b9eee`). The logo is the "devio" wordmark with a square royal
+  `#070b18`). Dark is the default; a light theme (`html[data-theme="light"]` in `css/style.css`,
+  background `#f5f7fc`, ink `#0b1228`) swaps the same tokens and is chosen with the header switch,
+  saved in `localStorage` as `devio-theme`. Use tokens, never hard-coded colours, and check every
+  change in both themes. Text on royal is white; royal as small text uses `--accent-ink`
+  (`#7b9eee` on navy, `#2450c0` on light). The logo is the "devio" wordmark with a square royal
   dot on the i, no separate symbol. The identity lives in `brand/` (guidelines PDF, logos, tokens);
   `brand/build-brand.mjs --render` regenerates it and the site icons. No gradients on text or
   buttons, no glows, blurred blobs, emoji icons, floating chips or typing effects.
 - English and Arabic: English text is in `index.html` under `data-i18n` keys, Arabic is the `ar`
   dictionary in `js/main.js`; change both. Use CSS logical properties (`inline-start`, not `left`) so
   the page mirrors; check every change in both languages. Each page is in one language only: no
-  Arabic text on the English page and no English on the Arabic one (the language switch is labelled
-  in the page's own language; only the email address and the logo stay Latin).
+  Arabic text on the English page and no English on the Arabic one (only the email address, the logo
+  and the language switch stay Latin: the switch shows the other language's code, `AR` or `EN`).
 - Copy is for customers, not developers: talk about what they get (more enquiries, less paperwork),
   never the tech stack.
 - Type: Sora for Latin headings, Readex Pro for body text and all Arabic, JetBrains Mono for small

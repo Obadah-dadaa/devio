@@ -117,7 +117,7 @@ const ar = {
   shotReminders: "التذكيرات",
   shotAging: "أعمار الديون",
   shotImport: "استيراد إكسل",
-  caseMeta: "نظام أعمال، يعمل في الإمارات",
+  caseMeta: "نظام أعمال، يعمل حالياً في الإمارات",
   caseText: "يأخذ تحصيلي فواتير الشركة مباشرة من إكسل، ويذكّر كل عميل بالبريد وواتساب قبل موعد الاستحقاق وبعده، ويعرض المستحق والمتأخر والمحصَّل في شاشة واحدة.",
   case1: "التذكيرات تُرسل تلقائياً كل صباح",
   case2: "كل عميل يُذكَّر بالعربية أو الإنجليزية",
@@ -128,15 +128,19 @@ const ar = {
   caseVisit: "زُر الموقع",
   caseFilm: "شاهد الفيلم (دقيقة)",
   moreTitle: "أعمال أخرى من الاستوديو",
-  more1H: "نوفا كلينك",
-  more1P: "حجز مواعيد لعيادة، مع سجلات المرضى وجدول كل طبيب في مكان واحد.",
-  more1R: "المرضى يحجزون إلكترونياً بدل الاتصال",
-  more2H: "نظام القلم",
-  more2P: "نظام واحد للمخزون والفواتير والتقارير، لشركة لم تعد جداول الإكسل تكفيها.",
-  more2R: "تقارير شهرية في دقائق لا أيام",
-  more3H: "متجر سيفا",
-  more3P: "متجر إلكتروني يختار فيه العميل اللون والمقاس ويدفع ويتابع طلبه.",
-  more3R: "المخزون يتحدّث تلقائياً مع كل عملية بيع",
+  altSeva: "الصفحة الرئيسية لمتجر سيفا للأزياء",
+  altCladflo: "الصفحة الرئيسية لكلادفلو مع لوحة العملاء",
+  moreVisit: "زُر الموقع",
+  more1H: "متجر سيفا",
+  more1M: "متجر إلكتروني، صُمّم للسوق المصري ويعمل فيه",
+  more2M: "نظام مبيعات، صُمّم لدبي",
+  more1P: "متجر أزياء إلكتروني يختار فيه العميل اللون والمقاس ويدفع ويتابع طلبه حتى باب المنزل.",
+  more1R: "المخزون يتحدّث تلقائياً مع كل عملية بيع",
+  more1Go: "زُر متجر سيفا",
+  more2H: "كلادفلو",
+  more2P: "كل عميل ومتابعة ومحضر اجتماع في مكان واحد لفريق المبيعات، مع تذكيرات على التقويم.",
+  more2R: "لا متابعة تُنسى",
+  more2Go: "زُر كلادفلو",
 
   whyTitle: "لماذا تختارنا الشركات",
   whyLead: "نحن فريق صغير عن قصد. من تلتقيهم هم من يصمّمون منتجك ويبنونه.",
@@ -191,8 +195,9 @@ const ui = {
   en: {
     title: document.title,
     description: document.querySelector('meta[name="description"]').content,
-    langLabel: "Arabic",
+    langLabel: "AR",
     langAria: "View this page in Arabic",
+    themeLabel: "Light theme",
     capPlan: "First we map what your business needs.",
     capDesign: "Then every screen is designed for you to try.",
     capBuild: "We build it and show you progress every week.",
@@ -217,8 +222,9 @@ const ui = {
   ar: {
     title: "ديفيو · مواقع وتطبيقات وبرمجيات يعتمد عليها عملك",
     description: "ديفيو تصمّم وتبني وتطلق المواقع وتطبيقات الجوال وأنظمة الأعمال للشركات في الإمارات، بالعربية والإنجليزية.",
-    langLabel: "الإنجليزية",
+    langLabel: "EN",
     langAria: "عرض الصفحة بالإنجليزية",
+    themeLabel: "المظهر الفاتح",
     capPlan: "نبدأ برسم ما يحتاجه عملك.",
     capDesign: "ثم نصمّم كل شاشة لتجرّبها.",
     capBuild: "نبنيه ونريك التقدّم كل أسبوع.",
@@ -283,6 +289,26 @@ function setLang(next) {
 }
 const toggleLang = () => setLang(isRtl() ? "en" : "ar");
 langToggles.forEach((btn) => btn.addEventListener("click", toggleLang));
+
+/* ---------- Theme: dark by default, light on request, remembered ---------- */
+const themeToggle = document.getElementById("themeToggle");
+const themeMeta = document.querySelector('meta[name="theme-color"]');
+const themeListeners = []; // script-drawn parts (the background canvas) recolour through these
+let theme = root.dataset.theme === "light" ? "light" : "dark";
+
+function applyTheme() {
+  root.dataset.theme = theme;
+  themeMeta.content = theme === "light" ? "#f5f7fc" : "#070b18";
+  themeToggle.setAttribute("aria-checked", String(theme === "light"));
+  themeToggle.setAttribute("aria-label", t("themeLabel"));
+  themeListeners.forEach((fn) => fn());
+}
+themeToggle.addEventListener("click", () => {
+  theme = theme === "light" ? "dark" : "light";
+  try { localStorage.setItem("devio-theme", theme); } catch (_) {}
+  applyTheme();
+});
+langListeners.push(applyTheme);
 
 /* ---------- Reveal: content settles in once, siblings in a short stagger ---------- */
 const revealObserver =
@@ -751,6 +777,13 @@ const fxCtx = fx.getContext("2d");
 const fxCell = 64;
 const fxPointer = { x: -9999, y: -9999 };
 let fxW = 0, fxH = 0, fxPulses = [], fxFrame = 0, fxLast = 0;
+// signal colours: pale royal on navy, full royal on the light page
+let fxRgb = "123, 158, 238", fxHead = "rgba(170, 195, 250, .9)";
+themeListeners.push(() => {
+  const light = theme === "light";
+  fxRgb = light ? "42, 92, 214" : "123, 158, 238";
+  fxHead = light ? "rgba(31, 77, 192, .9)" : "rgba(170, 195, 250, .9)";
+});
 
 function fxSpawn(p) {
   const cols = Math.ceil(fxW / fxCell), rows = Math.ceil(fxH / fxCell);
@@ -802,13 +835,13 @@ function fxDraw(now) {
     if (p.trail.length > 80) p.trail.splice(0, 2);
     const n = p.trail.length / 2;
     for (let i = 1; i < n; i++) {
-      fxCtx.strokeStyle = `rgba(123, 158, 238, ${((i / n) * 0.5).toFixed(3)})`;
+      fxCtx.strokeStyle = `rgba(${fxRgb}, ${((i / n) * 0.5).toFixed(3)})`;
       fxCtx.beginPath();
       fxCtx.moveTo(p.trail[i * 2 - 2] + 0.5, p.trail[i * 2 - 1] + 0.5);
       fxCtx.lineTo(p.trail[i * 2] + 0.5, p.trail[i * 2 + 1] + 0.5);
       fxCtx.stroke();
     }
-    fxCtx.fillStyle = "rgba(170, 195, 250, .9)";
+    fxCtx.fillStyle = fxHead;
     fxCtx.fillRect(p.x - 1, p.y - 1, 3, 3);
     if (p.x < -fxCell || p.y < -fxCell || p.x > fxW + fxCell || p.y > fxH + fxCell) fxSpawn(p);
   });
@@ -819,7 +852,7 @@ function fxDraw(now) {
     for (let y = y0; y <= fxPointer.y + reach; y += fxCell) {
       const near = 1 - Math.hypot(x - fxPointer.x, y - fxPointer.y) / reach;
       if (near <= 0) continue;
-      fxCtx.fillStyle = `rgba(123, 158, 238, ${(near * 0.8).toFixed(3)})`;
+      fxCtx.fillStyle = `rgba(${fxRgb}, ${(near * 0.8).toFixed(3)})`;
       fxCtx.fillRect(x - 1.5, y - 1.5, 4, 4);
     }
   }

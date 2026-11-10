@@ -11,7 +11,7 @@
   <meta property="og:image" content="brand/social/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#070b18" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="color-scheme" content="dark light" />
 
   <link rel="icon" href="assets/icons/favicon.ico" sizes="any" />
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
@@ -34,6 +34,10 @@
       if (lang !== "ar" && lang !== "en") lang = /^ar\b/i.test(navigator.language || "") ? "ar" : "en";
       root.lang = lang;
       root.dir = lang === "ar" ? "rtl" : "ltr";
+      /* Dark is the brand default; a visitor who picked light keeps it. */
+      var theme = "";
+      try { theme = localStorage.getItem("devio-theme") || ""; } catch (_) {}
+      root.dataset.theme = theme === "light" ? "light" : "dark";
     })();
   </script>
 </head>
@@ -71,7 +75,15 @@
 
       <div class="header-actions">
         <button class="lang-btn" id="langToggle" type="button" data-lang-toggle aria-label="View this page in Arabic">
-          <svg class="globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.500 12h17M12 3.500c2.600 2.400 3.800 5.200 3.800 8.500s-1.200 6.100-3.800 8.500c-2.600-2.400-3.800-5.200-3.800-8.500S9.400 5.900 12 3.500z"/></svg><span data-lang-label>Arabic</span>
+          <svg class="globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.500 12h17M12 3.500c2.600 2.400 3.800 5.200 3.800 8.500s-1.200 6.100-3.800 8.500c-2.600-2.400-3.800-5.200-3.800-8.500S9.400 5.900 12 3.500z"/></svg><span data-lang-label>AR</span>
+        </button>
+        <button class="theme-switch" id="themeToggle" type="button" role="switch" aria-checked="false" aria-label="Light theme">
+          <span class="theme-track">
+            <span class="theme-thumb">
+              <svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.200A8.200 8.200 0 0 1 9.800 4a8.200 8.200 0 1 0 10.200 10.200z"/></svg>
+              <svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.600 5.600l1.400 1.400M17 17l1.400 1.400M18.400 5.600L17 7M7 17l-1.400 1.400"/></svg>
+            </span>
+          </span>
         </button>
         <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path class="menu-line menu-line-1" d="M4 8h16"/><path class="menu-line menu-line-2" d="M4 16h16"/></svg>
@@ -342,7 +354,7 @@
                 <img src="assets/work/tahselly/logo.svg" width="48" height="48" alt="" />
                 <div>
                   <h3 data-i18n="caseName">Tahselly</h3>
-                  <p data-i18n="caseMeta">Business software, live in the UAE</p>
+                  <p data-i18n="caseMeta">Business software, now live in the UAE</p>
                 </div>
               </div>
               <p class="case-text reveal" data-i18n="caseText">
@@ -374,20 +386,33 @@
         <div class="more">
           <h3 class="more-title reveal" data-i18n="moreTitle">More from the studio</h3>
           <ul class="more-list">
-            <li class="more-row reveal">
-              <h4 data-i18n="more1H">Nova Clinic</h4>
-              <p data-i18n="more1P">Appointment booking for a clinic, with patient records and each doctor's schedule in one place.</p>
-              <p class="more-result" data-i18n="more1R">Patients book online instead of calling</p>
+            <li class="more-item reveal">
+              <div class="demo-window more-frame">
+                <div class="demo-bar" aria-hidden="true">
+                  <span class="demo-dots"><i></i><i></i><i></i></span>
+                  <span class="demo-url"><i class="live-dot is-live"></i>seva-store.com</span>
+                </div>
+                <img src="assets/work/seva/home.webp" width="1600" height="1000" loading="lazy" alt="Home page of the Seva fashion shop" data-i18n-alt="altSeva" />
+              </div>
+              <h4 data-i18n="more1H">Seva Store</h4>
+              <p class="more-meta" data-i18n="more1M">Online shop, built for and live in Egypt</p>
+              <p data-i18n="more1P">An online fashion shop where customers pick colour and size, pay, and follow their order to the door.</p>
+              <p class="more-result" data-i18n="more1R">Stock updates itself with every sale</p>
+              <a class="text-link more-link" href="https://seva-store.com/" target="_blank" rel="noopener" aria-label="Visit Seva Store" data-i18n-label="more1Go"><span data-i18n="moreVisit">Visit the site</span> <svg class="btn-arrow btn-arrow-out" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
             </li>
-            <li class="more-row reveal">
-              <h4 data-i18n="more2H">Al-Qalam ERP</h4>
-              <p data-i18n="more2P">One system for stock, invoices and reports, built for a business that had outgrown spreadsheets.</p>
-              <p class="more-result" data-i18n="more2R">Monthly reports in minutes, not days</p>
-            </li>
-            <li class="more-row reveal">
-              <h4 data-i18n="more3H">Seva Store</h4>
-              <p data-i18n="more3P">An online shop where customers pick colour and size, pay, and get updates on their order.</p>
-              <p class="more-result" data-i18n="more3R">Stock updates itself with every sale</p>
+            <li class="more-item reveal">
+              <div class="demo-window more-frame">
+                <div class="demo-bar" aria-hidden="true">
+                  <span class="demo-dots"><i></i><i></i><i></i></span>
+                  <span class="demo-url"><i class="live-dot is-live"></i>pipeline-9944d.web.app</span>
+                </div>
+                <img src="assets/work/cladflo/home.webp" width="1600" height="1000" loading="lazy" alt="Home page of CladFlo with its client dashboard" data-i18n-alt="altCladflo" />
+              </div>
+              <h4 data-i18n="more2H">CladFlo</h4>
+              <p class="more-meta" data-i18n="more2M">Sales software, built for Dubai</p>
+              <p data-i18n="more2P">Every client, follow-up and meeting note in one place for a sales team, with reminders on a calendar.</p>
+              <p class="more-result" data-i18n="more2R">No follow-up gets forgotten</p>
+              <a class="text-link more-link" href="https://pipeline-9944d.web.app" target="_blank" rel="noopener" aria-label="Visit CladFlo" data-i18n-label="more2Go"><span data-i18n="moreVisit">Visit the site</span> <svg class="btn-arrow btn-arrow-out" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg></a>
             </li>
           </ul>
         </div>
@@ -601,7 +626,7 @@
             <li><span data-i18n="footPlace">United Arab Emirates</span></li>
             <li>
               <button class="lang-btn" type="button" data-lang-toggle aria-label="View this page in Arabic">
-                <svg class="globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.500"/><path d="M3.500 12h17M12 3.500c2.600 2.400 3.800 5.200 3.800 8.500s-1.200 6.100-3.800 8.500c-2.600-2.400-3.800-5.200-3.800-8.500S9.400 5.900 12 3.500z"/></svg><span data-lang-label>Arabic</span>
+                <svg class="globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.500"/><path d="M3.500 12h17M12 3.500c2.600 2.400 3.800 5.200 3.800 8.500s-1.200 6.100-3.800 8.500c-2.600-2.400-3.800-5.200-3.800-8.500S9.400 5.900 12 3.500z"/></svg><span data-lang-label>AR</span>
               </button>
             </li>
           </ul>

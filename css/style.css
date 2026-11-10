@@ -1,7 +1,7 @@
 /* =========================================================
    Devio — stylesheet
    Deep navy with one accent colour (--accent, royal blue). Brand source: brand/tokens.css.
-   The site is dark by design; there is no light theme.
+   Dark is the default; the light theme below swaps the same tokens (html[data-theme="light"]).
    Spacing follows a 4px grid. Layout uses logical properties, so the page mirrors for Arabic.
    Change the tokens below to rebrand.
    ========================================================= */
@@ -29,6 +29,7 @@
   --header-bg: rgba(7, 11, 24, .82);
   --shadow: 0 1px 2px rgba(0, 0, 0, .35), 0 12px 28px -14px rgba(0, 0, 0, .7);
   --shadow-lg: 0 40px 90px -20px rgba(0, 0, 0, .65);
+  --grid-opacity: .3;
 
   --r-sm: 8px;
   --r-md: 12px;
@@ -44,6 +45,28 @@
   color-scheme: dark;
 }
 [dir="rtl"] { --dir: -1; }
+
+/* Light theme: the same navy and royal, turned over. Royal stays the one accent. */
+:root[data-theme="light"] {
+  --bg: #f5f7fc;
+  --bg-tint: #ebeff8;
+  --surface: #ffffff;
+  --ink: #0b1228;
+  --muted: #4d5a7c;
+  --line: #d9e0f0;
+  --line-strong: #b7c2dd;
+  --accent-hover: #1f4dc0;
+  --accent-soft: rgba(42, 92, 214, .1);
+  --accent-ink: #2450c0; /* royal, a shade deeper so small text reads on white */
+  --danger: #b92f35;
+  --success: #17754d;
+  --focus: #2a5cd6;
+  --header-bg: rgba(245, 247, 252, .86);
+  --shadow: 0 1px 2px rgba(11, 18, 40, .06), 0 12px 28px -14px rgba(11, 18, 40, .18);
+  --shadow-lg: 0 40px 90px -20px rgba(11, 18, 40, .22);
+  --grid-opacity: .55;
+  color-scheme: light;
+}
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -87,7 +110,7 @@ html[lang="ar"] :is(h1, h2, h3, h4) { line-height: 1.35; }
 body::before {
   content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
   background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: 64px 64px; opacity: .3;
+  background-size: 64px 64px; opacity: var(--grid-opacity);
 }
 .fx { position: fixed; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
 main, .site-footer { position: relative; z-index: 1; }
@@ -178,6 +201,26 @@ html[lang="ar"] .kicker { font-size: .9375rem; }
 .icon-btn:hover { background: var(--surface); color: var(--ink); }
 .icon-btn:active { transform: scale(.94); }
 .icon-btn svg { width: 20px; height: 20px; }
+/* theme switch: the thumb carries the current theme's icon and slides across for light */
+.theme-switch { display: grid; place-items: center; height: 44px; padding: 0 6px; }
+.theme-track {
+  position: relative; display: block; width: 52px; height: 28px; border-radius: var(--r-pill);
+  border: 1px solid var(--line-strong); background: var(--bg-tint);
+  transition: border-color .18s ease, transform .12s var(--ease-out);
+}
+.theme-switch:hover .theme-track { border-color: var(--accent-ink); }
+.theme-switch:active .theme-track { transform: scale(.97); }
+.theme-thumb {
+  position: absolute; top: 2px; inset-inline-start: 2px;
+  width: 22px; height: 22px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--accent); color: var(--on-accent);
+  transition: transform .22s var(--ease-out);
+}
+[data-theme="light"] .theme-thumb { transform: translateX(calc(24px * var(--dir))); }
+.theme-thumb svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.theme-sun, [data-theme="light"] .theme-moon { display: none; }
+[data-theme="light"] .theme-sun { display: block; }
 .lang-btn {
   display: inline-flex; align-items: center; gap: 8px;
   min-height: 44px; padding: 0 16px; border-radius: var(--r-pill);
@@ -523,20 +566,24 @@ html[lang="ar"] .gets li::after { top: calc(.35em + 6px); }
 html[lang="ar"] .case-did dt { font-size: .9375rem; }
 .case-did dd { color: var(--muted); }
 
-/* the rest of the work, as a plain list */
+/* the rest of the work: each project in the same browser frame as the featured one */
 .more { margin-top: clamp(64px, 8vw, 112px); }
 .more-title { font-family: var(--font-mono); font-weight: 400; font-size: .8125rem; letter-spacing: 0; color: var(--accent-ink); margin-bottom: 20px; }
 html[lang="ar"] .more-title { font-size: .9375rem; }
-.more-row {
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) minmax(0, 1.2fr);
-  gap: 8px 40px; align-items: baseline;
-  padding: 28px 0; border-top: 1px solid var(--line);
-}
-.more-row:last-child { border-bottom: 1px solid var(--line); }
-.more-row h4 { font-size: clamp(1.25rem, 1rem + .9vw, 1.75rem); letter-spacing: -0.02em; }
-.more-row p { color: var(--muted); font-size: .9375rem; }
-.more-row .more-result { color: var(--ink); font-weight: 500; display: flex; gap: 10px; align-items: baseline; }
+.more-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px clamp(24px, 3vw, 40px); }
+.more-frame { box-shadow: var(--shadow); margin-bottom: 24px; }
+.more-frame .demo-bar { height: 36px; padding: 0 14px; }
+.more-frame .demo-dots i { width: 8px; height: 8px; }
+.more-frame .demo-url { height: 22px; }
+.more-frame img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; background: var(--bg-tint); }
+.more-item h4 { font-size: clamp(1.25rem, 1rem + .9vw, 1.75rem); letter-spacing: -0.02em; margin-bottom: 2px; }
+.more-item .more-meta { margin-bottom: 12px; }
+.more-item p { color: var(--muted); font-size: .9375rem; max-width: 52ch; }
+.more-item .more-result { color: var(--ink); font-weight: 500; display: flex; gap: 10px; align-items: baseline; margin-top: 12px; }
 .more-result::before { content: ""; flex: none; width: 6px; height: 6px; background: var(--accent); transform: translateY(-2px); }
+.more-link { margin-top: 4px; white-space: nowrap; transition: color .18s ease, transform .16s var(--ease-out); }
+.more-link:hover .btn-arrow-out { transform: translate(calc(2px * var(--dir)), -2px) scaleX(var(--dir)); }
+.more-link:active { transform: scale(.97); }
 
 /* the launch film opens over the page */
 .film {
@@ -827,7 +874,7 @@ html[lang="ar"] .hero-words .w { padding-block: .4em; margin-block: -.4em; }
   .contact-inner, .case-info { grid-template-columns: 1fr; }
   .section-head { grid-template-columns: 1fr; }
   .section-head > p { justify-self: start; }
-  .more-row { grid-template-columns: 1fr; padding: 24px 0; }
+  .more-list { grid-template-columns: 1fr; gap: 40px; }
   .footer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .footer-brand { grid-column: 1 / -1; }
 
