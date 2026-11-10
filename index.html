@@ -38,6 +38,7 @@
   </script>
 </head>
 <body>
+  <canvas class="fx" id="fx" aria-hidden="true"></canvas>
   <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
   <header class="site-header" id="siteHeader">
@@ -69,7 +70,9 @@
       </nav>
 
       <div class="header-actions">
-        <button class="lang-btn" id="langToggle" type="button" aria-label="عرض الصفحة بالعربية"><span id="langLabel" lang="ar">العربية</span></button>
+        <button class="lang-btn" id="langToggle" type="button" data-lang-toggle aria-label="View this page in Arabic">
+          <svg class="globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.500 12h17M12 3.500c2.600 2.400 3.800 5.200 3.800 8.500s-1.200 6.100-3.800 8.500c-2.600-2.400-3.800-5.200-3.800-8.500S9.400 5.900 12 3.500z"/></svg><span data-lang-label>Arabic</span>
+        </button>
         <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path class="menu-line menu-line-1" d="M4 8h16"/><path class="menu-line menu-line-2" d="M4 16h16"/></svg>
         </button>
@@ -81,12 +84,11 @@
   <main id="main">
     <!-- Hero -->
     <section class="hero" id="top">
-      <div class="hero-bg" aria-hidden="true"><i class="hero-light"></i><i class="hero-grid"></i></div>
+      <div class="hero-bg" aria-hidden="true"><i class="hero-light"></i></div>
       <div class="container hero-inner">
         <div class="hero-copy">
           <p class="kicker hero-in" data-i18n="heroKicker">Software studio · United Arab Emirates</p>
           <h1 class="hero-words" data-split data-i18n="heroTitle">Software your business <em>runs on.</em></h1>
-          <p class="hero-alt hero-in" id="heroAlt" lang="ar" dir="rtl" data-i18n="heroAlt">برمجيات يعتمد عليها عملك.</p>
           <p class="lead hero-in" data-i18n="heroLead">
             Websites, mobile apps and business systems, designed and built by one team,
             from the first idea to launch day.
@@ -102,25 +104,97 @@
           </ul>
         </div>
 
-        <!-- A real product we launched, front and centre -->
-        <figure class="hero-shot hero-in" id="heroShot">
-          <div class="demo-window">
-            <div class="demo-bar" aria-hidden="true">
-              <span class="demo-dots"><i></i><i></i><i></i></span>
-              <span class="demo-url"><i class="live-dot is-live"></i>tahselly.com</span>
-            </div>
-            <img src="assets/work/tahselly/owner-dashboard.webp" width="1600" height="1000" alt="Tahselly owner dashboard with collection rate, receivables and a chart of invoiced versus collected" data-i18n-alt="altDashboard" />
-            <figcaption class="hero-cap">
-              <span><b>Tahselly</b> · <span data-i18n="heroCap">Collections platform, live in the UAE</span></span>
-              <a href="#work" class="text-link"><span data-i18n="heroCase">View the project</span> <i class="arrow" aria-hidden="true">→</i></a>
-            </figcaption>
+        <!-- A product coming together: planned, designed, built, launched -->
+        <figure class="hero-art hero-in" id="heroArt" data-stage="plan" aria-label="How a project comes together" data-i18n-label="heroArtLabel">
+          <svg class="build" viewBox="0 0 640 470" aria-hidden="true">
+            <g class="b-wires"><path d="M270 330V400"/><path d="M210 400H470"/></g>
+
+            <g class="b-browser">
+              <rect class="b-frame" x="40" y="20" width="460" height="310" rx="14"/>
+              <path class="b-rule" d="M40 60H500"/>
+              <g class="b-chrome"><circle cx="64" cy="40" r="4"/><circle cx="80" cy="40" r="4"/><circle cx="96" cy="40" r="4"/><rect x="190" y="30" width="160" height="20" rx="10"/></g>
+              <circle class="b-ping" cx="204" cy="40" r="3"/><circle class="b-live" cx="204" cy="40" r="3"/>
+              <rect class="b-el c-ink" style="--n:1" x="68" y="86" width="180" height="14" rx="3" pathLength="1"/>
+              <rect class="b-el c-ink" style="--n:2" x="68" y="108" width="124" height="14" rx="3" pathLength="1"/>
+              <rect class="b-el c-muted" style="--n:3" x="68" y="138" width="160" height="6" rx="3" pathLength="1"/>
+              <rect class="b-el c-muted" style="--n:4" x="68" y="150" width="116" height="6" rx="3" pathLength="1"/>
+              <rect class="b-el c-accent b-btn" style="--n:5" x="68" y="174" width="92" height="28" rx="14" pathLength="1"/>
+              <rect class="b-el c-soft" style="--n:6" x="290" y="84" width="186" height="124" rx="10" pathLength="1"/>
+              <g class="b-bars">
+                <rect class="b-bar" style="--n:0" x="310" y="162" width="14" height="30" rx="2"/>
+                <rect class="b-bar" style="--n:1" x="338" y="144" width="14" height="48" rx="2"/>
+                <rect class="b-bar" style="--n:2" x="366" y="152" width="14" height="40" rx="2"/>
+                <rect class="b-bar" style="--n:3" x="394" y="126" width="14" height="66" rx="2"/>
+                <rect class="b-bar" style="--n:4" x="422" y="134" width="14" height="58" rx="2"/>
+                <rect class="b-bar" style="--n:5" x="450" y="108" width="14" height="84" rx="2"/>
+              </g>
+              <path class="b-line" d="M317 150L345 132L373 140L401 112L429 120L457 96" pathLength="1"/>
+              <rect class="b-el c-card" style="--n:7" x="68" y="232" width="124" height="76" rx="10" pathLength="1"/>
+              <rect class="b-el c-card" style="--n:8" x="208" y="232" width="124" height="76" rx="10" pathLength="1"/>
+              <rect class="b-el c-card" style="--n:9" x="348" y="232" width="128" height="76" rx="10" pathLength="1"/>
+              <g class="b-on">
+                <rect class="c-accent" x="82" y="246" width="16" height="16" rx="4"/><rect class="c-muted" x="82" y="274" width="72" height="6" rx="3"/><rect class="c-muted" x="82" y="286" width="48" height="6" rx="3"/>
+                <rect class="c-accent" x="222" y="246" width="16" height="16" rx="4"/><rect class="c-muted" x="222" y="274" width="80" height="6" rx="3"/><rect class="c-muted" x="222" y="286" width="56" height="6" rx="3"/>
+                <rect class="c-accent" x="362" y="246" width="16" height="16" rx="4"/><rect class="c-muted" x="362" y="274" width="64" height="6" rx="3"/><rect class="c-muted" x="362" y="286" width="84" height="6" rx="3"/>
+              </g>
+            </g>
+
+            <g class="b-panel">
+              <rect class="b-frame" x="10" y="300" width="200" height="150" rx="12"/>
+              <rect class="b-el c-ink" style="--n:3" x="26" y="318" width="64" height="8" rx="4" pathLength="1"/>
+              <rect class="b-el c-soft" style="--n:4" x="26" y="342" width="14" height="14" rx="4" pathLength="1"/><rect class="b-el c-muted" style="--n:4" x="50" y="346" width="124" height="6" rx="3" pathLength="1"/>
+              <rect class="b-el c-soft" style="--n:5" x="26" y="366" width="14" height="14" rx="4" pathLength="1"/><rect class="b-el c-muted" style="--n:5" x="50" y="370" width="96" height="6" rx="3" pathLength="1"/>
+              <rect class="b-el c-soft" style="--n:6" x="26" y="390" width="14" height="14" rx="4" pathLength="1"/><rect class="b-el c-muted" style="--n:6" x="50" y="394" width="136" height="6" rx="3" pathLength="1"/>
+              <rect class="b-el c-soft" style="--n:7" x="26" y="414" width="14" height="14" rx="4" pathLength="1"/><rect class="b-el c-muted" style="--n:7" x="50" y="418" width="84" height="6" rx="3" pathLength="1"/>
+              <path class="b-check" style="--n:0" d="M29.500 349l2.500 2.500 5-5.500" pathLength="1"/>
+              <path class="b-check" style="--n:1" d="M29.500 373l2.500 2.500 5-5.500" pathLength="1"/>
+              <path class="b-check" style="--n:2" d="M29.500 397l2.500 2.500 5-5.500" pathLength="1"/>
+              <path class="b-check" style="--n:3" d="M29.500 421l2.500 2.500 5-5.500" pathLength="1"/>
+            </g>
+
+            <g class="b-phone">
+              <rect class="b-frame" x="470" y="140" width="140" height="300" rx="22"/>
+              <rect class="b-notch" x="522" y="150" width="36" height="6" rx="3"/>
+              <rect class="b-el c-ink" style="--n:5" x="486" y="174" width="64" height="10" rx="4" pathLength="1"/>
+              <rect class="b-el c-soft" style="--n:5" x="580" y="170" width="16" height="16" rx="8" pathLength="1"/>
+              <rect class="b-el c-accent" style="--n:6" x="486" y="198" width="108" height="72" rx="10" pathLength="1"/>
+              <g class="b-on"><rect class="c-white" x="498" y="212" width="48" height="6" rx="3"/><rect class="c-white" x="498" y="240" width="72" height="14" rx="4"/></g>
+              <rect class="b-el c-card" style="--n:7" x="486" y="282" width="108" height="26" rx="8" pathLength="1"/>
+              <rect class="b-el c-card" style="--n:8" x="486" y="316" width="108" height="26" rx="8" pathLength="1"/>
+              <rect class="b-el c-card" style="--n:9" x="486" y="350" width="108" height="26" rx="8" pathLength="1"/>
+              <rect class="b-el c-accent" style="--n:10" x="486" y="394" width="108" height="28" rx="14" pathLength="1"/>
+              <g class="b-note"><rect x="478" y="160" width="124" height="36" rx="10"/><rect class="c-accent" x="488" y="170" width="16" height="16" rx="4"/><rect class="c-dark" x="512" y="171" width="60" height="6" rx="3"/><rect class="c-dark2" x="512" y="181" width="40" height="5" rx="2.500"/></g>
+            </g>
+
+            <g class="b-cursor"><path d="M0 0V17L4.600 12.800L8 20L11 18.600L7.600 11.600L13.400 11.600Z"/></g>
+          </svg>
+          <div class="demo-steps hero-steps" role="tablist" aria-label="How a project comes together" data-i18n-label="heroArtLabel">
+            <button class="demo-step" type="button" role="tab" data-key="plan" aria-selected="true" data-i18n="hsPlan">Plan</button>
+            <button class="demo-step" type="button" role="tab" data-key="design" aria-selected="false" data-i18n="hsDesign">Design</button>
+            <button class="demo-step" type="button" role="tab" data-key="build" aria-selected="false" data-i18n="hsBuild">Build</button>
+            <button class="demo-step" type="button" role="tab" data-key="launch" aria-selected="false" data-i18n="hsLaunch">Launch</button>
           </div>
+          <figcaption class="demo-caption" aria-live="polite"></figcaption>
         </figure>
       </div>
     </section>
 
+    <!-- What we make, passing by -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <ul><li data-i18n="tk1">Websites</li><li data-i18n="tk2">Mobile apps</li><li data-i18n="tk3">Online stores</li><li data-i18n="tk4">Booking systems</li><li data-i18n="tk5">Customer portals</li><li data-i18n="tk6">Dashboards</li><li data-i18n="tk7">Business systems</li><li data-i18n="tk8">Brand identity</li></ul>
+        <ul><li data-i18n="tk1">Websites</li><li data-i18n="tk2">Mobile apps</li><li data-i18n="tk3">Online stores</li><li data-i18n="tk4">Booking systems</li><li data-i18n="tk5">Customer portals</li><li data-i18n="tk6">Dashboards</li><li data-i18n="tk7">Business systems</li><li data-i18n="tk8">Brand identity</li></ul>
+      </div>
+    </div>
+
     <!-- One sentence that lights up as you read down the page -->
     <section class="statement" aria-labelledby="statement">
+      <svg class="statement-art" viewBox="0 0 400 400" aria-hidden="true">
+        <g class="orbit o1"><circle cx="200" cy="200" r="70"/><rect x="264" y="194" width="12" height="12"/></g>
+        <g class="orbit o2"><circle cx="200" cy="200" r="130"/><rect x="64" y="194" width="12" height="12"/><rect x="195" y="325" width="10" height="10"/></g>
+        <g class="orbit o3"><circle cx="200" cy="200" r="190"/><rect x="384" y="194" width="12" height="12"/><rect x="195" y="5" width="10" height="10"/></g>
+        <rect class="core" x="182" y="182" width="36" height="36"/>
+      </svg>
       <div class="container">
         <p class="statement-text" id="statement" data-split data-i18n="statement">We plan it, design it, build it and launch it. One team, in Arabic and English, with you at every step.</p>
       </div>
@@ -162,6 +236,7 @@
 
           <div class="svc-panels">
             <article class="svc-panel" role="tabpanel" id="panel-site" aria-labelledby="tab-site">
+              <svg class="svc-art" viewBox="0 0 160 96" aria-hidden="true"><rect x="8" y="8" width="144" height="80" rx="8" pathLength="1"/><path d="M8 28H152" pathLength="1"/><path d="M24 46H84" pathLength="1"/><path d="M24 58H64" pathLength="1"/><rect x="100" y="42" width="38" height="32" rx="4" pathLength="1"/><rect class="a" x="24" y="68" width="28" height="10" rx="5"/></svg>
               <h3 data-i18n="siteH">A website that turns visitors into enquiries.</h3>
               <p data-i18n="siteP">Clear, fast and easy to trust. People understand what you offer in seconds and know exactly how to contact you.</p>
               <ul class="gets">
@@ -171,6 +246,7 @@
               </ul>
             </article>
             <article class="svc-panel" role="tabpanel" id="panel-app" aria-labelledby="tab-app" hidden>
+              <svg class="svc-art" viewBox="0 0 160 96" aria-hidden="true"><rect x="20" y="14" width="120" height="74" rx="8" pathLength="1"/><path d="M20 34H140" pathLength="1"/><path d="M50 8V20M110 8V20" pathLength="1"/><path d="M40 50H56M72 50H88M104 50H120M40 68H56" pathLength="1"/><path d="M104 68l5 5 9-10" pathLength="1"/><rect class="a" x="70" y="60" width="20" height="16" rx="4"/></svg>
               <h3 data-i18n="appH">Let customers order, book and pay without calling you.</h3>
               <p data-i18n="appP">Your business stays open after hours. Customers help themselves, and you see every order in one place.</p>
               <ul class="gets">
@@ -180,6 +256,7 @@
               </ul>
             </article>
             <article class="svc-panel" role="tabpanel" id="panel-mobile" aria-labelledby="tab-mobile" hidden>
+              <svg class="svc-art" viewBox="0 0 160 96" aria-hidden="true"><rect x="56" y="4" width="48" height="88" rx="10" pathLength="1"/><path d="M74 12H86" pathLength="1"/><path d="M64 50H96M64 60H86" pathLength="1"/><path d="M114 30a14 14 0 0 1 0 22" pathLength="1"/><path d="M124 22a26 26 0 0 1 0 38" pathLength="1"/><rect class="a" x="64" y="24" width="32" height="14" rx="4"/></svg>
               <h3 data-i18n="mobileH">Your business in your customer's pocket.</h3>
               <p data-i18n="mobileP">An app your customers open to order, book, pay and follow up, with notifications that bring them back.</p>
               <ul class="gets">
@@ -189,6 +266,7 @@
               </ul>
             </article>
             <article class="svc-panel" role="tabpanel" id="panel-software" aria-labelledby="tab-software" hidden>
+              <svg class="svc-art" viewBox="0 0 160 96" aria-hidden="true"><path d="M12 84H148" pathLength="1"/><rect x="24" y="52" width="16" height="32" pathLength="1"/><rect x="52" y="40" width="16" height="44" pathLength="1"/><rect x="108" y="46" width="16" height="38" pathLength="1"/><path d="M20 38L58 26L88 10L118 30L144 14" pathLength="1"/><rect class="a" x="80" y="26" width="16" height="58"/></svg>
               <h3 data-i18n="softH">Swap spreadsheets and paperwork for one simple system.</h3>
               <p data-i18n="softP">Software shaped around how your business already works: stock, invoices, payments and reports, all together.</p>
               <ul class="gets">
@@ -198,6 +276,7 @@
               </ul>
             </article>
             <article class="svc-panel" role="tabpanel" id="panel-design" aria-labelledby="tab-design" hidden>
+              <svg class="svc-art" viewBox="0 0 160 96" aria-hidden="true"><path d="M16 76C40 10 110 90 144 20" pathLength="1"/><path d="M16 76L44 40" pathLength="1"/><path d="M144 20L112 54" pathLength="1"/><circle cx="44" cy="40" r="4" pathLength="1"/><circle cx="112" cy="54" r="4" pathLength="1"/><rect class="a" x="10" y="70" width="12" height="12"/><rect class="a" x="138" y="14" width="12" height="12"/></svg>
               <h3 data-i18n="designH">A product that looks premium and feels easy.</h3>
               <p data-i18n="designP">We design every screen first and let you try it, so your customers get it without a manual.</p>
               <ul class="gets">
@@ -207,6 +286,7 @@
               </ul>
             </article>
             <article class="svc-panel" role="tabpanel" id="panel-brand" aria-labelledby="tab-brand" hidden>
+              <svg class="svc-art" viewBox="0 0 160 96" aria-hidden="true"><circle cx="40" cy="48" r="26" pathLength="1"/><rect x="74" y="22" width="52" height="52" pathLength="1"/><path d="M96 86L122 40L148 86Z" pathLength="1"/><rect class="a" x="34" y="42" width="12" height="12"/></svg>
               <h3 data-i18n="brandH">A brand people recognise at a glance.</h3>
               <p data-i18n="brandP">Logo, colours, type and the rules for using them, so everything you publish looks like you.</p>
               <ul class="gets">
@@ -261,7 +341,7 @@
               <div class="case-id reveal">
                 <img src="assets/work/tahselly/logo.svg" width="48" height="48" alt="" />
                 <div>
-                  <h3>Tahselly <span lang="ar" dir="rtl">تحصيلي</span></h3>
+                  <h3 data-i18n="caseName">Tahselly</h3>
                   <p data-i18n="caseMeta">Business software, live in the UAE</p>
                 </div>
               </div>
@@ -295,17 +375,17 @@
           <h3 class="more-title reveal" data-i18n="moreTitle">More from the studio</h3>
           <ul class="more-list">
             <li class="more-row reveal">
-              <h4>Nova Clinic</h4>
+              <h4 data-i18n="more1H">Nova Clinic</h4>
               <p data-i18n="more1P">Appointment booking for a clinic, with patient records and each doctor's schedule in one place.</p>
               <p class="more-result" data-i18n="more1R">Patients book online instead of calling</p>
             </li>
             <li class="more-row reveal">
-              <h4>Al-Qalam ERP</h4>
+              <h4 data-i18n="more2H">Al-Qalam ERP</h4>
               <p data-i18n="more2P">One system for stock, invoices and reports, built for a business that had outgrown spreadsheets.</p>
               <p class="more-result" data-i18n="more2R">Monthly reports in minutes, not days</p>
             </li>
             <li class="more-row reveal">
-              <h4>Seva Store</h4>
+              <h4 data-i18n="more3H">Seva Store</h4>
               <p data-i18n="more3P">An online shop where customers pick colour and size, pay, and get updates on their order.</p>
               <p class="more-result" data-i18n="more3R">Stock updates itself with every sale</p>
             </li>
@@ -326,6 +406,7 @@
         </header>
 
         <ol class="steps">
+          <li class="scanline" aria-hidden="true"></li>
           <li class="step reveal">
             <span class="step-num">01</span>
             <h3 data-i18n="step1H">Tell us your idea</h3>
@@ -361,8 +442,8 @@
           <p class="kicker" data-i18n="navWhy">Why Devio</p>
           <h2 id="why-title" data-i18n="whyTitle">Why businesses choose Devio</h2>
           <p class="why-lead" data-i18n="whyLead">We're a small team on purpose. The people you meet are the people who design and build your product.</p>
-          <button class="lang-card" type="button" id="langCard">
-            <span class="lang-card-pair" aria-hidden="true"><b>Aa</b><i></i><b lang="ar">أب</b></span>
+          <button class="lang-card" type="button" id="langCard" data-lang-toggle>
+            <span class="lang-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8h14l-3.500-3.500M20 16H6l3.500 3.500"/></svg></span>
             <span class="lang-card-text"><strong data-i18n="langCardT">See this page in Arabic</strong><span data-i18n="langCardP">Everything we build switches language like this.</span></span>
           </button>
         </div>
@@ -464,28 +545,74 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p class="footer-tag" data-i18n="footTag">From idea to launch.</p>
-      <ul class="footer-nav">
-        <li><a href="#services" data-i18n="navServices">Services</a></li>
-        <li><a href="#work" data-i18n="navWork">Work</a></li>
-        <li><a href="#process" data-i18n="navProcess">How it works</a></li>
-        <li><a href="#contact" data-i18n="cta">Start a project</a></li>
-      </ul>
-      <!-- the wordmark, as wide as the page, drawn once when you reach it -->
-      <svg class="footer-mark reveal" viewBox="2 4 280 92" role="img" aria-label="Devio">
-        <g class="logo-strokes">
-          <circle cx="34" cy="64" r="24" pathLength="1"/>
-          <path d="M58 4V96" pathLength="1"/>
-          <path d="M76 64H124A24 24 0 1 0 117 81" pathLength="1"/>
-          <path d="M140 36L164 86L188 36" pathLength="1"/>
-          <path d="M210 40V96" pathLength="1"/>
-          <circle cx="250" cy="64" r="24" pathLength="1"/>
-        </g>
-        <rect class="logo-dot" x="202" y="8" width="16" height="16"/>
-      </svg>
-      <p class="footer-legal">© <span id="year">2026</span> Devio. <span data-i18n="footLegal">Websites, apps and software for growing businesses.</span></p>
-      <a href="#top" class="text-link footer-top"><span data-i18n="footTop">Back to top</span> <i aria-hidden="true">↑</i></a>
+    <span class="scanline" aria-hidden="true"></span>
+    <div class="container">
+      <div class="footer-cta reveal">
+        <div>
+          <p class="kicker" data-i18n="footKicker">Next step</p>
+          <h2 data-i18n="footTitle">Have an idea? Let's put it on screen.</h2>
+        </div>
+        <a href="#contact" class="btn btn-primary"><span data-i18n="cta">Start a project</span> <svg class="btn-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-brand reveal">
+          <svg class="footer-logo" viewBox="2 4 280 92" role="img" aria-label="Devio" data-i18n-label="brandLabel">
+            <g class="logo-strokes">
+              <circle cx="34" cy="64" r="24" pathLength="1"/>
+              <path d="M58 4V96" pathLength="1"/>
+              <path d="M76 64H124A24 24 0 1 0 117 81" pathLength="1"/>
+              <path d="M140 36L164 86L188 36" pathLength="1"/>
+              <path d="M210 40V96" pathLength="1"/>
+              <circle cx="250" cy="64" r="24" pathLength="1"/>
+            </g>
+            <rect class="logo-dot" x="202" y="8" width="16" height="16"/>
+          </svg>
+          <p data-i18n="footLegal">Websites, apps and software for growing businesses.</p>
+          <p class="footer-status"><i class="live-dot is-live" aria-hidden="true"></i><span data-i18n="footStatus">Taking on new projects</span></p>
+        </div>
+
+        <nav class="footer-col reveal" aria-label="Services" data-i18n-label="navServices">
+          <h3 data-i18n="navServices">Services</h3>
+          <ul>
+            <li><a href="#services" data-svc="tab-site" data-i18n="fs1">Websites</a></li>
+            <li><a href="#services" data-svc="tab-app" data-i18n="fs2">Ordering and booking</a></li>
+            <li><a href="#services" data-svc="tab-mobile" data-i18n="fs3">Mobile apps</a></li>
+            <li><a href="#services" data-svc="tab-software" data-i18n="fs4">Business systems</a></li>
+            <li><a href="#services" data-svc="tab-design" data-i18n="fs5">Product design</a></li>
+            <li><a href="#services" data-svc="tab-brand" data-i18n="fs6">Brand identity</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col reveal" aria-label="Studio" data-i18n-label="footStudio">
+          <h3 data-i18n="footStudio">Studio</h3>
+          <ul>
+            <li><a href="#work" data-i18n="navWork">Work</a></li>
+            <li><a href="#process" data-i18n="navProcess">How it works</a></li>
+            <li><a href="#why" data-i18n="navWhy">Why Devio</a></li>
+            <li><a href="#contact" data-i18n="contactKicker">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-col reveal">
+          <h3 data-i18n="contactKicker">Contact</h3>
+          <ul>
+            <li><a href="mailto:hello@devio.com" dir="ltr">hello@devio.com</a></li>
+            <li><span data-i18n="footPlace">United Arab Emirates</span></li>
+            <li>
+              <button class="lang-btn" type="button" data-lang-toggle aria-label="View this page in Arabic">
+                <svg class="globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.500"/><path d="M3.500 12h17M12 3.500c2.600 2.400 3.800 5.200 3.800 8.500s-1.200 6.100-3.800 8.500c-2.600-2.400-3.800-5.200-3.800-8.500S9.400 5.900 12 3.500z"/></svg><span data-lang-label>Arabic</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bar">
+        <p>© <span id="year">2026</span> <span data-i18n="footRights">Devio. All rights reserved.</span></p>
+        <p class="footer-clock"><span data-i18n="footTime">UAE time</span> <b id="clock" dir="ltr">--:--</b></p>
+        <a href="#top" class="text-link footer-top"><span data-i18n="footTop">Back to top</span> <i aria-hidden="true">↑</i></a>
+      </div>
     </div>
   </footer>
 

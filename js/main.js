@@ -24,7 +24,6 @@ const ar = {
 
   heroKicker: "استوديو برمجيات · الإمارات العربية المتحدة",
   heroTitle: "برمجيات <em>يعتمد عليها</em> عملك.",
-  heroAlt: "Software your business runs on.",
   heroLead: "مواقع وتطبيقات جوال وأنظمة أعمال، يصمّمها ويبنيها فريق واحد، من الفكرة الأولى إلى يوم الإطلاق.",
   heroWork: "شاهد أعمالنا",
   strip1T: "الويب",
@@ -33,8 +32,19 @@ const ar = {
   strip2P: "آيفون وأندرويد",
   strip3T: "التصميم",
   strip3P: "هوية ومنتجات",
-  heroCap: "منصة تحصيل، تعمل في الإمارات",
-  heroCase: "شاهد المشروع",
+  heroArtLabel: "كيف يتكوّن مشروعك: تخطيط ثم تصميم ثم بناء ثم إطلاق",
+  hsPlan: "التخطيط",
+  hsDesign: "التصميم",
+  hsBuild: "البناء",
+  hsLaunch: "الإطلاق",
+  tk1: "مواقع",
+  tk2: "تطبيقات جوال",
+  tk3: "متاجر إلكترونية",
+  tk4: "أنظمة حجز",
+  tk5: "بوابات عملاء",
+  tk6: "لوحات تحكم",
+  tk7: "أنظمة أعمال",
+  tk8: "هوية بصرية",
   statement: "نخطّط ونصمّم ونبني ونطلق. فريق واحد، بالعربية والإنجليزية، معك في كل خطوة.",
 
   svcTitle: "ماذا نبني لك",
@@ -59,7 +69,7 @@ const ar = {
   mobileP: "تطبيق يفتحه عملاؤك ليطلبوا ويحجزوا ويدفعوا ويتابعوا، مع إشعارات تعيدهم إليك.",
   mobile1: "تطبيق واحد لآيفون وأندرويد",
   mobile2: "العربية والإنجليزية من الشاشة الأولى",
-  mobile3: "ننشره لك على App Store و Google Play",
+  mobile3: "ننشره لك على متجر آبل ومتجر جوجل",
   softH: "استبدل جداول الإكسل والأوراق بنظام واحد بسيط.",
   softP: "نظام مبني على طريقة عملك الحالية: المخزون والفواتير والمدفوعات والتقارير في مكان واحد.",
   soft1: "نسخ أقل بين الملفات وأخطاء أقل",
@@ -95,6 +105,7 @@ const ar = {
   workKicker: "مشروع مميّز",
   workTitle: "تحصيلي: فواتير غير مدفوعة تتابع نفسها",
   workLead: "تخسر الشركات أسابيع في ملاحقة المدفوعات المتأخرة. صمّمنا وبنينا وأطلقنا منتجاً يقوم بالمتابعة عنها.",
+  caseName: "تحصيلي",
   caseLabel: "شاشات من تحصيلي",
   altDashboard: "لوحة المالك في تحصيلي: نسبة التحصيل والمستحقات ومخطط المفوتر مقابل المحصَّل",
   altInvoices: "قائمة الفواتير المتأخرة في تحصيلي",
@@ -114,13 +125,16 @@ const ar = {
   case4: "الاشتراكات تُدفع إلكترونياً بالدرهم",
   caseDidT: "ما قمنا به",
   caseDid: "تخطيط المنتج، تصميم الواجهات، البرمجة، الإطلاق وفيلم الإطلاق",
-  caseVisit: "زُر tahselly.com",
+  caseVisit: "زُر الموقع",
   caseFilm: "شاهد الفيلم (دقيقة)",
   moreTitle: "أعمال أخرى من الاستوديو",
+  more1H: "نوفا كلينك",
   more1P: "حجز مواعيد لعيادة، مع سجلات المرضى وجدول كل طبيب في مكان واحد.",
   more1R: "المرضى يحجزون إلكترونياً بدل الاتصال",
+  more2H: "نظام القلم",
   more2P: "نظام واحد للمخزون والفواتير والتقارير، لشركة لم تعد جداول الإكسل تكفيها.",
   more2R: "تقارير شهرية في دقائق لا أيام",
+  more3H: "متجر سيفا",
   more3P: "متجر إلكتروني يختار فيه العميل اللون والمقاس ويدفع ويتابع طلبه.",
   more3R: "المخزون يتحدّث تلقائياً مع كل عملية بيع",
 
@@ -153,7 +167,19 @@ const ar = {
   fHint: "ماذا يجب أن يفعل، ولمن هو، وهل لديك موعد تستهدفه؟",
   fSend: "أرسل فكرتي",
 
-  footTag: "من الفكرة إلى الإطلاق.",
+  footKicker: "الخطوة التالية",
+  footTitle: "عندك فكرة؟ لنضعها على الشاشة.",
+  footStatus: "نستقبل مشاريع جديدة",
+  footStudio: "الاستوديو",
+  fs1: "مواقع",
+  fs2: "الطلب والحجز",
+  fs3: "تطبيقات جوال",
+  fs4: "أنظمة أعمال",
+  fs5: "تصميم المنتجات",
+  fs6: "هوية بصرية",
+  footPlace: "الإمارات العربية المتحدة",
+  footRights: "ديفيو. جميع الحقوق محفوظة.",
+  footTime: "توقيت الإمارات",
   footLegal: "مواقع وتطبيقات وأنظمة للشركات الطموحة.",
   footTop: "العودة للأعلى",
   filmLabel: "فيلم إطلاق تحصيلي",
@@ -165,8 +191,12 @@ const ui = {
   en: {
     title: document.title,
     description: document.querySelector('meta[name="description"]').content,
-    langLabel: "العربية",
-    langAria: "عرض الصفحة بالعربية",
+    langLabel: "Arabic",
+    langAria: "View this page in Arabic",
+    capPlan: "First we map what your business needs.",
+    capDesign: "Then every screen is designed for you to try.",
+    capBuild: "We build it and show you progress every week.",
+    capLaunch: "It goes live, and we stay to keep improving it.",
     menuOpen: "Open menu",
     menuClose: "Close menu",
     capDashboard: "The owner sees what is due, overdue and collected on one screen.",
@@ -187,8 +217,12 @@ const ui = {
   ar: {
     title: "ديفيو · مواقع وتطبيقات وبرمجيات يعتمد عليها عملك",
     description: "ديفيو تصمّم وتبني وتطلق المواقع وتطبيقات الجوال وأنظمة الأعمال للشركات في الإمارات، بالعربية والإنجليزية.",
-    langLabel: "English",
-    langAria: "View this page in English",
+    langLabel: "الإنجليزية",
+    langAria: "عرض الصفحة بالإنجليزية",
+    capPlan: "نبدأ برسم ما يحتاجه عملك.",
+    capDesign: "ثم نصمّم كل شاشة لتجرّبها.",
+    capBuild: "نبنيه ونريك التقدّم كل أسبوع.",
+    capLaunch: "ينطلق، ونبقى معك لنطوّره.",
     menuOpen: "فتح القائمة",
     menuClose: "إغلاق القائمة",
     capDashboard: "يرى المالك المستحق والمتأخر والمحصَّل في شاشة واحدة.",
@@ -218,8 +252,8 @@ const labelNodes = [...document.querySelectorAll("[data-i18n-label]")].map((el) 
 const altNodes = [...document.querySelectorAll("[data-i18n-alt]")].map((el) => ({ el, key: el.dataset.i18nAlt, en: el.alt }));
 const pick = (node) => (lang === "ar" && ar[node.key]) || node.en;
 
-const langToggle = document.getElementById("langToggle");
-const langLabel = document.getElementById("langLabel");
+const langToggles = [...document.querySelectorAll("[data-lang-toggle]")];
+const langLabels = [...document.querySelectorAll("[data-lang-label]")];
 const langListeners = []; // parts of the page that hold script-made text re-render through these
 
 function applyLang() {
@@ -230,10 +264,9 @@ function applyLang() {
   altNodes.forEach((n) => { n.el.alt = pick(n); });
   document.title = t("title");
   document.querySelector('meta[name="description"]').content = t("description");
-  // the switch is written in the language it leads to
-  langLabel.textContent = t("langLabel");
-  langLabel.lang = isRtl() ? "en" : "ar";
-  langToggle.setAttribute("aria-label", t("langAria"));
+  // each page names the other language in its own words, so nothing on it is in a second language
+  langLabels.forEach((el) => { el.textContent = t("langLabel"); });
+  langToggles.forEach((btn) => { if (btn.querySelector("[data-lang-label]")) btn.setAttribute("aria-label", t("langAria")); });
   langListeners.forEach((fn) => fn());
 }
 
@@ -249,8 +282,7 @@ function setLang(next) {
   langTimer = setTimeout(() => root.classList.remove("lang-switching"), 500);
 }
 const toggleLang = () => setLang(isRtl() ? "en" : "ar");
-langToggle.addEventListener("click", toggleLang);
-document.getElementById("langCard").addEventListener("click", toggleLang);
+langToggles.forEach((btn) => btn.addEventListener("click", toggleLang));
 
 /* ---------- Reveal: content settles in once, siblings in a short stagger ---------- */
 const revealObserver =
@@ -305,14 +337,10 @@ function splitWords(el) {
 }
 const splitNodes = [...document.querySelectorAll("[data-split]")];
 const statement = document.getElementById("statement");
-const heroAlt = document.getElementById("heroAlt");
 let statementWords = [];
 langListeners.push(() => {
   splitNodes.forEach(splitWords);
   statementWords = [...statement.querySelectorAll(".w")];
-  // the hero's second line is always in the language the page is not in
-  heroAlt.lang = isRtl() ? "en" : "ar";
-  heroAlt.dir = isRtl() ? "ltr" : "rtl";
 });
 
 /* ---------- Hero: one staggered entrance ---------- */
@@ -325,7 +353,7 @@ function playHero() {
 }
 
 /* ---------- Stage viewer ----------
-   A frame with steps under it that plays through on its own: the Tahselly screens.
+   A frame with steps under it that plays through on its own: the hero drawing and the Tahselly screens.
    stages: { key: { time, caption } }, caption being a key in ui. */
 function stageViewer(el, stages, onChange) {
   const steps = [...el.querySelectorAll(".demo-step")];
@@ -385,6 +413,36 @@ function stageViewer(el, stages, onChange) {
   langListeners.push(() => { caption.textContent = t(stages[el.dataset.stage].caption); });
   set(order[0], { announce: false });
 }
+
+/* ---------- Hero: a product comes together, stage by stage ---------- */
+const heroArt = document.getElementById("heroArt");
+const heroStages = ["plan", "design", "build", "launch"];
+stageViewer(
+  heroArt,
+  {
+    plan: { time: "3.6s", caption: "capPlan" },
+    design: { time: "3.2s", caption: "capDesign" },
+    build: { time: "3.8s", caption: "capBuild" },
+    launch: { time: "4.6s", caption: "capLaunch" },
+  },
+  (key) => {
+    // s1, s2, s3 stay on once their stage has passed, so each stage builds on the one before
+    const at = heroStages.indexOf(key);
+    [1, 2, 3].forEach((n) => heroArt.classList.toggle(`s${n}`, at >= n));
+  }
+);
+// the phone and the task list lean a little towards the pointer
+const hero = document.querySelector(".hero");
+hero.addEventListener("pointermove", (e) => {
+  if (e.pointerType !== "mouse" || reduceMotion.matches) return;
+  const box = hero.getBoundingClientRect();
+  heroArt.style.setProperty("--mx", (((e.clientX - box.left) / box.width) * 2 - 1).toFixed(3));
+  heroArt.style.setProperty("--my", (((e.clientY - box.top) / box.height) * 2 - 1).toFixed(3));
+});
+hero.addEventListener("pointerleave", () => {
+  heroArt.style.setProperty("--mx", 0);
+  heroArt.style.setProperty("--my", 0);
+});
 
 const caseViewer = document.getElementById("caseViewer");
 const shots = [...caseViewer.querySelectorAll(".shot")];
@@ -504,14 +562,13 @@ function onScroll() {
 }
 
 /* ---------- Scroll scenes: three things on the page follow the scroll position ---------- */
-const heroShot = document.getElementById("heroShot");
 const clamp01 = (n) => Math.min(Math.max(n, 0), 1);
 
 function scrollScenes(y) {
   const vh = window.innerHeight;
   const still = reduceMotion.matches;
-  // the hero frame drifts
-  heroShot.style.setProperty("--sy", still ? 0 : clamp01(y / vh).toFixed(3));
+  // the hero drawing drifts
+  heroArt.style.setProperty("--sy", still ? 0 : clamp01(y / vh).toFixed(3));
   // the statement lights up word by word while it crosses the middle of the screen
   const box = statement.getBoundingClientRect();
   const read = still ? 1 : clamp01((vh * 0.82 - box.top) / (vh * 0.42 + box.height));
@@ -685,6 +742,117 @@ langListeners.push(() => {
   note.textContent = "";
   note.className = "form-note";
 });
+
+/* ---------- Background: signals travelling along the page grid ----------
+   The grid itself is CSS (body::before, 64px). This canvas sits on it and sends short
+   pulses down its lines; grid points near the pointer light up. Off under reduced motion. */
+const fx = document.getElementById("fx");
+const fxCtx = fx.getContext("2d");
+const fxCell = 64;
+const fxPointer = { x: -9999, y: -9999 };
+let fxW = 0, fxH = 0, fxPulses = [], fxFrame = 0, fxLast = 0;
+
+function fxSpawn(p) {
+  const cols = Math.ceil(fxW / fxCell), rows = Math.ceil(fxH / fxCell);
+  const across = Math.random() < 0.5, forward = Math.random() < 0.5;
+  p.dx = across ? (forward ? 1 : -1) : 0;
+  p.dy = across ? 0 : forward ? 1 : -1;
+  p.x = across ? (forward ? 0 : cols * fxCell) : Math.round(Math.random() * cols) * fxCell;
+  p.y = across ? Math.round(Math.random() * rows) * fxCell : forward ? 0 : rows * fxCell;
+  p.speed = 60 + Math.random() * 100;
+  p.left = fxCell; // distance to the next crossing
+  p.trail = [];
+  return p;
+}
+
+function fxResize() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  fxW = window.innerWidth;
+  fxH = window.innerHeight;
+  fx.width = fxW * dpr;
+  fx.height = fxH * dpr;
+  fxCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const count = Math.min(Math.max(Math.round((fxW * fxH) / 90000), 8), 26);
+  fxPulses = Array.from({ length: count }, () => fxSpawn({}));
+}
+
+function fxDraw(now) {
+  fxFrame = requestAnimationFrame(fxDraw);
+  const dt = Math.min((now - fxLast) / 1000, 0.05);
+  fxLast = now;
+  fxCtx.clearRect(0, 0, fxW, fxH);
+  fxCtx.lineWidth = 1;
+  fxPulses.forEach((p) => {
+    let move = p.speed * dt;
+    while (move > 0) {
+      const stepBy = Math.min(move, p.left);
+      p.x += p.dx * stepBy;
+      p.y += p.dy * stepBy;
+      p.left -= stepBy;
+      move -= stepBy;
+      if (p.left <= 0) {
+        p.left = fxCell;
+        if (Math.random() < 0.3) { // turn at the crossing
+          const turn = Math.random() < 0.5 ? 1 : -1;
+          [p.dx, p.dy] = p.dx ? [0, turn] : [turn, 0];
+        }
+      }
+    }
+    p.trail.push(p.x, p.y);
+    if (p.trail.length > 80) p.trail.splice(0, 2);
+    const n = p.trail.length / 2;
+    for (let i = 1; i < n; i++) {
+      fxCtx.strokeStyle = `rgba(123, 158, 238, ${((i / n) * 0.5).toFixed(3)})`;
+      fxCtx.beginPath();
+      fxCtx.moveTo(p.trail[i * 2 - 2] + 0.5, p.trail[i * 2 - 1] + 0.5);
+      fxCtx.lineTo(p.trail[i * 2] + 0.5, p.trail[i * 2 + 1] + 0.5);
+      fxCtx.stroke();
+    }
+    fxCtx.fillStyle = "rgba(170, 195, 250, .9)";
+    fxCtx.fillRect(p.x - 1, p.y - 1, 3, 3);
+    if (p.x < -fxCell || p.y < -fxCell || p.x > fxW + fxCell || p.y > fxH + fxCell) fxSpawn(p);
+  });
+  // grid points around the pointer
+  const reach = 180;
+  const x0 = Math.floor((fxPointer.x - reach) / fxCell) * fxCell, y0 = Math.floor((fxPointer.y - reach) / fxCell) * fxCell;
+  for (let x = x0; x <= fxPointer.x + reach; x += fxCell) {
+    for (let y = y0; y <= fxPointer.y + reach; y += fxCell) {
+      const near = 1 - Math.hypot(x - fxPointer.x, y - fxPointer.y) / reach;
+      if (near <= 0) continue;
+      fxCtx.fillStyle = `rgba(123, 158, 238, ${(near * 0.8).toFixed(3)})`;
+      fxCtx.fillRect(x - 1.5, y - 1.5, 4, 4);
+    }
+  }
+}
+
+function fxRun() {
+  cancelAnimationFrame(fxFrame);
+  fxCtx.clearRect(0, 0, fxW, fxH);
+  if (reduceMotion.matches || document.hidden) return;
+  fxLast = performance.now();
+  fxFrame = requestAnimationFrame(fxDraw);
+}
+window.addEventListener("pointermove", (e) => {
+  if (e.pointerType !== "mouse") return;
+  fxPointer.x = e.clientX;
+  fxPointer.y = e.clientY;
+}, { passive: true });
+document.addEventListener("pointerleave", () => { fxPointer.x = fxPointer.y = -9999; });
+document.addEventListener("visibilitychange", fxRun);
+reduceMotion.addEventListener("change", fxRun);
+window.addEventListener("resize", () => { fxResize(); fxRun(); });
+fxResize();
+fxRun();
+
+/* ---------- Footer: service links open that service, and the clock shows UAE time ---------- */
+document.querySelectorAll("[data-svc]").forEach((a) => {
+  a.addEventListener("click", () => selectSvc(document.getElementById(a.dataset.svc)));
+});
+const clock = document.getElementById("clock");
+const clockFormat = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Dubai", hour: "2-digit", minute: "2-digit" });
+const tick = () => { clock.textContent = clockFormat.format(new Date()); };
+tick();
+setInterval(tick, 30000);
 
 /* ---------- Start ---------- */
 function relayout() {

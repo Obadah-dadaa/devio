@@ -21,15 +21,18 @@ Static site: `index.html`, `css/style.css`, `js/main.js`. No build step. Open `i
   buttons, no glows, blurred blobs, emoji icons, floating chips or typing effects.
 - English and Arabic: English text is in `index.html` under `data-i18n` keys, Arabic is the `ar`
   dictionary in `js/main.js`; change both. Use CSS logical properties (`inline-start`, not `left`) so
-  the page mirrors; check every change in both languages.
+  the page mirrors; check every change in both languages. Each page is in one language only: no
+  Arabic text on the English page and no English on the Arabic one (the language switch is labelled
+  in the page's own language; only the email address and the logo stay Latin).
 - Copy is for customers, not developers: talk about what they get (more enquiries, less paperwork),
   never the tech stack.
 - Type: Sora for Latin headings, Readex Pro for body text and all Arabic, JetBrains Mono for small
   meta labels. Sentence case headings. No ALL CAPS
   labels. Paragraphs stay under about 65 characters wide.
 - Numbers only for real sequences (the process steps).
-- Motion must say something (the logo draws itself; the hero headline rises word by word; the
-  statement lights up as you read down; the Tahselly frame tilts upright on scroll and plays the
+- Motion must say something (the logo draws itself; the hero headline rises word by word; the hero
+  drawing builds a product through plan, design, build and launch; signals run along the page grid
+  on the `#fx` canvas; the statement lights up as you read down; the Tahselly frame tilts upright on scroll and plays the
   real screens; indicators show where you are). `transform` and `opacity` only, never `transition: all`; pressed buttons scale to 0.97;
   everything respects `prefers-reduced-motion`.
 - Every interactive element has hover, focus-visible and active states. Touch targets at least 44 px.

@@ -44,8 +44,11 @@ projects are the `.more-row` items below it. Captions under the viewer are in `u
 
 ## Motion and interaction
 
-Every effect says something: the logo draws itself once on load (and again, page-wide, in the footer),
-the hero headline rises word by word, the statement under the hero lights up word by word as you read
+Every effect says something: the logo draws itself once on load (and again in the footer),
+the hero headline rises word by word, the hero drawing builds a product in four stages (plan, design,
+build, launch), signals travel along the page grid behind everything (a canvas, `#fx`), a ticker lists
+what we make, each service has a small drawing that redraws when picked, the footer shows live UAE
+time, the statement under the hero lights up word by word as you read
 down the page, the Tahselly frame tilts upright as it scrolls into view and then plays through the real
 product screens (click a step, or let it play), the services list shows what you get for
 each one, sections settle in as you reach them, the process lines draw in order, one indicator marks the
