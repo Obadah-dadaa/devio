@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" fill="#4f46e5"/><g transform="translate(51.2 51.2) scale(.8)"><path fill="#ffffff" fill-rule="evenodd" d="M150 128h102a128 128 0 0 1 0 256H150zm62 62v132h40a66 66 0 0 0 0-132z"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Devio"><title>Devio</title>
+  <rect width="120" height="120" fill="#070B18"/>
+  <g transform="translate(21 21) scale(.65)">
+  <g fill="none" stroke="#FFFFFF" stroke-width="14">
+    <circle cx="50" cy="70" r="21"/>
+    <path d="M71 22V98"/>
+  </g>
+  <rect x="85" y="77" width="14" height="14" fill="#2A5CD6"/></g>
+</svg>

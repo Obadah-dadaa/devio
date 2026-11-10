@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Devio brand guidelines</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Readex+Pro:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  @page { size: 1440px 810px; margin: 0; }
+  :root { --navy:#070B18; --navy2:#0B1124; --surface:#101830; --line:#1C2748; --line2:#2B3968; --royal:#2A5CD6; --light:#7B9EEE; --mist:#96A2C2; --cloud:#F3F5FA; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Readex Pro", sans-serif; color: #fff; background: #333; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { position: relative; width: 1440px; height: 810px; padding: 72px 88px; background: var(--navy); overflow: hidden; page-break-after: always; display: flex; flex-direction: column; }
+  .page.alt { background: var(--navy2); }
+  .page.lit::before { content: ""; position: absolute; inset: 0; background: radial-gradient(900px 600px at 76% 40%, rgba(42,92,214,.2), transparent 70%); }
+  .page.lit::after { content: ""; position: absolute; inset: 0; opacity: .5; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 80px 80px; -webkit-mask-image: radial-gradient(900px 600px at 76% 40%, #000, transparent 75%); }
+  .page > * { position: relative; z-index: 1; }
+  .meta { font: 400 15px "JetBrains Mono", monospace; color: var(--mist); display: flex; justify-content: space-between; }
+  .meta span:first-child { color: var(--light); }
+  h1 { font: 600 84px/1.02 "Sora", sans-serif; letter-spacing: -.035em; }
+  h1 em { font-style: normal; color: var(--royal); }
+  h2 { font: 600 46px/1.08 "Sora", sans-serif; letter-spacing: -.035em; margin: 28px 0 14px; }
+  h3 { font: 600 20px/1.3 "Sora", sans-serif; letter-spacing: -.01em; margin-bottom: 6px; }
+  p { font-size: 18px; font-weight: 300; line-height: 1.6; color: var(--mist); max-width: 58ch; }
+  .ar { direction: rtl; }
+  .grow { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .cols { display: grid; gap: 32px; margin-top: 28px; }
+  .c2 { grid-template-columns: 1fr 1fr; } .c3 { grid-template-columns: repeat(3, 1fr); } .c4 { grid-template-columns: repeat(4, 1fr); }
+  .box { border-radius: 18px; display: grid; place-items: center; padding: 40px; height: 220px; border: 1px solid var(--line2); background: var(--surface); }
+  .box img { max-width: 62%; max-height: 100%; }
+  .box.cloud { background: var(--cloud); border-color: var(--cloud); } .box.royal { background: var(--royal); border-color: var(--royal); } .box.navy { background: var(--navy); }
+  .c4 .box { height: 190px; padding: 28px; }
+  .cap { font: 400 14px "JetBrains Mono", monospace; color: var(--mist); margin-top: 10px; }
+  .sw { border-radius: 18px; height: 250px; padding: 22px; display: flex; flex-direction: column; justify-content: flex-end; font: 400 14px/1.6 "JetBrains Mono", monospace; border: 1px solid var(--line2); }
+  .sw b { font: 600 20px "Sora", sans-serif; }
+  .no { position: relative; }
+  .no::after { content: ""; position: absolute; left: 12%; right: 12%; top: 50%; height: 3px; background: #f2888b; transform: rotate(-18deg); }
+  .rule { display: grid; grid-template-columns: 24px 1fr; gap: 12px; font-size: 18px; line-height: 1.5; margin-top: 14px; }
+  .rule i { width: 10px; height: 10px; background: var(--royal); margin-top: 9px; }
+  .spec { font: 400 15px/1.7 "JetBrains Mono", monospace; color: var(--mist); }
+  .clear { position: relative; display: inline-block; padding: 64px; border: 1px dashed var(--line2); }
+  .clear img { width: 400px; display: block; }
+  .clear span { position: absolute; width: 64px; height: 64px; border: 1px solid var(--light); border-radius: 50%; }
+</style>
+</head>
+<body>
+
+<section class="page lit">
+  <div class="meta"><span>Brand guidelines</span><span>Version 2.0 · 2026</span></div>
+  <div class="grow">
+    <img src="logo/devio-logo-reversed.svg" alt="Devio" style="width:520px">
+    <p style="font:600 34px Sora;letter-spacing:-.03em;margin-top:52px;color:#fff">Software your business runs on.</p>
+    <p style="font-size:28px;margin-top:6px"><span dir="rtl">برمجيات يعتمد عليها عملك.</span></p>
+  </div>
+  <div class="meta"><span>Websites · Mobile apps · Business software · Design</span><span>United Arab Emirates</span></div>
+</section>
+
+<section class="page alt">
+  <div class="meta"><span>01 · The idea</span><span>Devio</span></div>
+  <div class="grow">
+    <h1 style="max-width:15ch">Built to be <em>relied on.</em></h1>
+    <div class="cols c3">
+      <div><h3>Who we are</h3><p>A software studio that designs, builds and launches websites, apps and business systems for companies in the UAE.</p></div>
+      <div><h3>What the logo says</h3><p>The name, drawn from one line with square, engineered corners. The square dot on the i is the single point of colour: the one thing done precisely.</p></div>
+      <div><h3>How we sound</h3><p>Plain, calm and exact. We talk about what a customer gets, in Arabic and English, and never hide behind technical words.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="meta"><span>02 · Logo</span><span>Devio</span></div>
+  <h2>The logo is the name</h2>
+  <p>There is no separate symbol. Use the wordmark wherever there is room; the icon is only for app icons, favicons and profile pictures.</p>
+  <div class="cols c3">
+    <div><div class="box navy"><img src="logo/devio-logo-reversed.svg" alt=""></div><p class="cap">Main, on navy · devio-logo-reversed.svg</p></div>
+    <div><div class="box cloud"><img src="logo/devio-logo.svg" alt=""></div><p class="cap">On light · devio-logo.svg</p></div>
+    <div><div class="box royal"><img src="logo/devio-logo-mono-white.svg" alt=""></div><p class="cap">One colour · devio-logo-mono-white.svg</p></div>
+    <div><div class="box"><img src="logo/devio-icon.svg" alt="" style="max-height:130px"></div><p class="cap">Icon · devio-icon.svg</p></div>
+    <div><div class="box"><img src="logo/devio-icon-royal.svg" alt="" style="max-height:130px"></div><p class="cap">Icon on royal · devio-icon-royal.svg</p></div>
+    <div><div class="box"><img src="logo/devio-icon-light.svg" alt="" style="max-height:130px"></div><p class="cap">Icon on light · devio-icon-light.svg</p></div>
+  </div>
+</section>
+
+<section class="page alt">
+  <div class="meta"><span>03 · Logo use</span><span>Devio</span></div>
+  <div class="cols c2" style="flex:1;align-items:center">
+    <div>
+      <h2>Clear space and size</h2>
+      <p>Keep a space equal to the height of the letter o free on every side. Nothing else enters it.</p>
+      <div class="rule"><i></i><span>Wordmark: at least 72 px wide on screen, 20 mm in print.</span></div>
+      <div class="rule"><i></i><span>Icon: at least 24 px on screen, 8 mm in print.</span></div>
+      <div class="rule"><i></i><span>The wordmark stays in Latin letters in Arabic layouts and keeps its left-to-right order.</span></div>
+      <div class="rule"><i></i><span>On photos, place the logo on a navy panel.</span></div>
+    </div>
+    <div style="text-align:center">
+      <div class="clear"><img src="logo/devio-logo-reversed.svg" alt=""><span style="left:0;top:0"></span><span style="right:0;top:0"></span><span style="left:0;bottom:0"></span><span style="right:0;bottom:0"></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="meta"><span>04 · Logo misuse</span><span>Devio</span></div>
+  <h2>Please don't</h2>
+  <div class="cols c4" style="gap:20px 32px">
+    <div><div class="box no"><img src="logo/devio-logo-reversed.svg" alt="" style="transform:scaleX(1.5)"></div><p class="cap">Stretch or squeeze it</p></div>
+    <div><div class="box no"><img src="logo/devio-logo-reversed.svg" alt="" style="filter:hue-rotate(140deg) saturate(3)"></div><p class="cap">Change the colours</p></div>
+    <div><div class="box no"><img src="logo/devio-logo-reversed.svg" alt="" style="transform:rotate(-14deg)"></div><p class="cap">Rotate or tilt it</p></div>
+    <div><div class="box royal no"><img src="logo/devio-logo-reversed.svg" alt=""></div><p class="cap">Put the royal dot on royal</p></div>
+    <div><div class="box no"><img src="logo/devio-logo-reversed.svg" alt="" style="filter:drop-shadow(0 0 14px #7B9EEE)"></div><p class="cap">Add glows or effects</p></div>
+    <div><div class="box no" style="background:#8b93a5"><img src="logo/devio-logo-reversed.svg" alt=""></div><p class="cap">Use it on low contrast</p></div>
+    <div><div class="box no"><img src="logo/devio-logo-reversed.svg" alt="" style="opacity:.3"></div><p class="cap">Fade it</p></div>
+    <div><div class="box no" style="font:700 54px Sora">devio</div><p class="cap">Retype it in a font</p></div>
+  </div>
+</section>
+
+<section class="page alt">
+  <div class="meta"><span>05 · Colour</span><span>Devio</span></div>
+  <h2>Deep navy and one royal blue</h2>
+  <p>Royal is the only accent. It marks the one thing to look at or press. Roughly 70% navy, 20% white and mist text, 10% royal.</p>
+  <div class="cols" style="grid-template-columns:1.4fr 1.4fr 1fr 1fr 1fr 1fr;gap:16px">
+    <div class="sw" style="background:var(--navy)"><b>Navy</b>#070B18<br>RGB 7 11 24</div>
+    <div class="sw" style="background:var(--royal);border-color:var(--royal)"><b>Royal</b>#2A5CD6<br>RGB 42 92 214</div>
+    <div class="sw" style="background:var(--surface)"><b>Surface</b>#101830</div>
+    <div class="sw" style="background:var(--light);border-color:var(--light);color:var(--navy)"><b>Royal light</b>#7B9EEE</div>
+    <div class="sw" style="background:var(--mist);border-color:var(--mist);color:var(--navy)"><b>Mist</b>#96A2C2</div>
+    <div class="sw" style="background:var(--cloud);border-color:var(--cloud);color:var(--navy)"><b>Cloud</b>#F3F5FA</div>
+  </div>
+  <div class="cols c3" style="margin-top:24px">
+    <div class="rule"><i></i><span>Text on royal is always white.</span></div>
+    <div class="rule"><i></i><span>Small blue text and icons on navy use Royal light so they stay readable.</span></div>
+    <div class="rule"><i></i><span>Lines are #1C2748 and #2B3968. No neon, no glows, no second accent.</span></div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="meta"><span>06 · Typography</span><span>Devio</span></div>
+  <div class="cols c3" style="flex:1;align-items:start;align-content:center">
+    <div>
+      <p class="cap">Sora · headings in English</p>
+      <p style="font:600 96px/1 Sora;color:#fff;letter-spacing:-.04em;margin:14px 0">Aa</p>
+      <p style="font:600 28px/1.2 Sora;color:#fff;letter-spacing:-.03em">Software your business runs on.</p>
+      <p class="spec" style="margin-top:16px">Weight 600<br>Tracking −2% to −3.5%<br>Sentence case, never all caps</p>
+    </div>
+    <div>
+      <p class="cap">Readex Pro · body, and everything in Arabic</p>
+      <p style="font:600 96px/1 'Readex Pro';color:#fff;margin:14px 0">Aa <span lang="ar">أب</span></p>
+      <p style="font:300 20px/1.6 'Readex Pro';color:#fff">We design and build software for growing businesses.</p>
+      <p class="ar" style="font:300 20px/1.8 'Readex Pro';color:#fff">نصمّم ونبني البرمجيات للشركات الطموحة.</p>
+      <p class="spec" style="margin-top:12px">Weights 300 to 600 · Arabic tracking 0</p>
+    </div>
+    <div>
+      <p class="cap">JetBrains Mono · small labels and numbers</p>
+      <p style="font:500 96px/1 'JetBrains Mono';color:#fff;margin:14px 0">01</p>
+      <p style="font:400 20px/1.6 'JetBrains Mono';color:var(--light)">tahselly.com · 09:00</p>
+      <p class="spec" style="margin-top:16px">13 to 15 px only<br>Section labels, web addresses, captions</p>
+    </div>
+  </div>
+</section>
+
+<section class="page alt">
+  <div class="meta"><span>07 · Voice</span><span>Devio</span></div>
+  <h2>How Devio speaks</h2>
+  <div class="cols c2">
+    <div>
+      <h3>Say what the customer gets</h3>
+      <p style="color:#fff">"A website that turns visitors into enquiries."</p>
+      <p style="margin-top:6px">Not: "A responsive, SEO-optimised web solution."</p>
+      <h3 style="margin-top:28px">Short, concrete, sentence case</h3>
+      <p>One idea per sentence. No exclamation marks, no buzzwords, no promises we cannot prove.</p>
+      <h3 style="margin-top:28px">Tagline</h3>
+      <p style="color:#fff;font:600 26px Sora;letter-spacing:-.02em">Software your business runs on.</p>
+    </div>
+    <div class="ar">
+      <h3 style="font-family:'Readex Pro'">قل للعميل ماذا سيحصل عليه</h3>
+      <p style="color:#fff">«موقع يحوّل الزوّار إلى عملاء يتواصلون معك.»</p>
+      <p style="margin-top:6px">وليس: «حل ويب متجاوب ومتوافق مع محركات البحث.»</p>
+      <h3 style="margin-top:28px;font-family:'Readex Pro'">عربية واضحة وبسيطة</h3>
+      <p>فصحى مبسّطة يفهمها الجميع في الإمارات. جملة قصيرة وفكرة واحدة، بلا مبالغة.</p>
+      <h3 style="margin-top:28px;font-family:'Readex Pro'">الشعار اللفظي</h3>
+      <p style="color:#fff;font:600 26px 'Readex Pro'">برمجيات يعتمد عليها عملك.</p>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="meta"><span>08 · Shape and motion</span><span>Devio</span></div>
+  <h2>Shape, light and motion</h2>
+  <div class="cols c3">
+    <div>
+      <h3>Shape</h3>
+      <p>Panels with 18 px corners and a 1 px line. Buttons and tags are full pills. Line icons with a 1.6 px stroke. The square dot can mark a bullet or the current item.</p>
+    </div>
+    <div>
+      <h3>Light</h3>
+      <p>Backgrounds stay flat navy. One soft wash of royal and a faint 80 px drafting grid may sit behind the main image of a page, and nowhere else.</p>
+    </div>
+    <div>
+      <h3>Motion</h3>
+      <p>Cinematic but calm: headlines rise word by word, the logo draws itself, product screens tip into place and sentences light up as you scroll.</p>
+      <p class="spec" style="margin-top:12px">Ease cubic-bezier(.22, 1, .36, 1)<br>180 ms taps · 450 ms moves · 1000 ms reveals<br>Move and fade only · respect reduced motion</p>
+    </div>
+  </div>
+</section>
+
+<section class="page alt">
+  <div class="meta"><span>09 · In use</span><span>Devio</span></div>
+  <h2>The identity in use</h2>
+  <div class="cols" style="grid-template-columns:1.6fr 1fr 1fr;align-items:start">
+    <div><img src="social/og-image.png" alt="" style="width:100%;border-radius:16px;display:block;border:1px solid var(--line2)"><p class="cap">Link preview · social/og-image.png (Arabic version included)</p></div>
+    <div><img src="stationery/business-card-front.png" alt="" style="width:100%;border-radius:10px;display:block;border:1px solid var(--line2)"><img src="stationery/business-card-back.png" alt="" style="width:100%;border-radius:10px;display:block;margin-top:14px"><p class="cap">Business card, 90 × 55 mm</p></div>
+    <div><div style="display:grid;grid-template-columns:1fr 1fr;gap:14px"><img src="social/avatar.png" alt="" style="width:100%;border-radius:50%;border:1px solid var(--line2)"><img src="social/avatar-royal.png" alt="" style="width:100%;border-radius:50%"></div><p class="cap">Profile pictures</p><img src="social/linkedin-banner.png" alt="" style="width:100%;border-radius:8px;margin-top:18px;display:block;border:1px solid var(--line2)"><p class="cap">LinkedIn banner</p></div>
+  </div>
+</section>
+
+</body>
+</html>

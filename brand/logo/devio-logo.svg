@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 4 280 92" role="img" aria-label="Devio"><title>Devio</title>
+  <g fill="none" stroke="#070B18" stroke-width="16" stroke-linejoin="miter">
+    <circle cx="34" cy="64" r="24"/>
+    <path d="M58 4V96"/>
+    <path d="M76 64H124A24 24 0 1 0 117 81"/>
+    <path d="M140 36L164 86L188 36"/>
+    <path d="M210 40V96"/>
+    <circle cx="250" cy="64" r="24"/>
+  </g>
+  <rect x="202" y="8" width="16" height="16" fill="#2A5CD6"/>
+</svg>

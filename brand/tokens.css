@@ -1,0 +1,20 @@
+/* Devio brand tokens */
+:root {
+  --devio-navy: #070B18;
+  --devio-navy-2: #0B1124;
+  --devio-surface: #101830;
+  --devio-line: #1C2748;
+  --devio-line-2: #2B3968;
+  --devio-royal: #2A5CD6;
+  --devio-royal-light: #7B9EEE; /* the accent for small text and icons on navy */
+  --devio-mist: #96A2C2;
+  --devio-cloud: #F3F5FA;
+  --devio-white: #FFFFFF;
+
+  --devio-font-display: "Sora", "Readex Pro", system-ui, sans-serif;
+  --devio-font-body: "Readex Pro", system-ui, sans-serif; /* Latin and Arabic */
+  --devio-font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --devio-radius: 18px;
+  --devio-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
