@@ -60,7 +60,7 @@ still visible (in English).
 ## Contact form
 
 There is no backend yet. After validation the form opens the visitor's email app with the message
-filled in, addressed to `hello@devio.com`. Replace `sendMessage()` in `js/main.js` with a POST to the
+filled in, addressed to `obadah.dada1999@gmail.com`. Replace `sendMessage()` in `js/main.js` with a POST to the
 Laravel API when it exists.
 
 ## Run locally

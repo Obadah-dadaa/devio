@@ -2,7 +2,7 @@
    Devio — main script
    ========================================================= */
 
-const contactEmail = "hello@devio.com";
+const contactEmail = "obadah.dada1999@gmail.com";
 const root = document.documentElement;
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const staggerStep = 70;
@@ -181,7 +181,7 @@ const ar = {
   fs4: "أنظمة أعمال",
   fs5: "تصميم المنتجات",
   fs6: "هوية بصرية",
-  footPlace: "الإمارات العربية المتحدة",
+  footPlace: "دبي، الإمارات العربية المتحدة",
   footRights: "ديفيو. جميع الحقوق محفوظة.",
   footTime: "توقيت الإمارات",
   footLegal: "مواقع وتطبيقات وأنظمة للشركات الطموحة.",
